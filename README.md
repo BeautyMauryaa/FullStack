@@ -8,14 +8,51 @@ I wanted to go from knowing a bit of JavaScript to being able to build and deplo
 
 ```text
 fullstack-journey/
-├── fundamental/         # JS fundamentals, async/await, HTTP basics
-├── backend/   # Express, authentication, JWT, REST APIs
-├── database/  # MongoDB, Mongoose, Redis caching
-├── frontend/  # React, protected routes, real-time UI
-├── ai/        # LLM integration, streaming, RAG basics
-├── devops/    # Docker, GitHub Actions, deployment
-├── polish/    # Cleanup, security, documentation
-└── project/           # The main project — everything combined
+├── .gitignore
+├── README.md
+│
+├── foundation/
+│   ├── js-basics.js
+│   ├── async-await.js
+│   ├── promises.js
+│   └── notes.md
+│
+├── backend/
+│   ├── auth-api/
+│   └── notes.md
+│
+├── database/
+│   ├── mongo-practice/
+│   ├── redis-practice/
+│   └── notes.md
+│
+├── frontend/
+│   ├── react-dashboard/
+│   └── notes.md
+│
+└── project/
+    ├── backend/
+    │   ├── src/
+    │   │   ├── controllers/
+    │   │   ├── middlewares/
+    │   │   ├── models/
+    │   │   ├── routes/
+    │   │   ├── services/
+    │   │   └── utils/
+    │   ├── .env.example
+    │   └── server.js
+    ├── frontend/
+    │   ├── src/
+    │   │   ├── components/
+    │   │   ├── pages/
+    │   │   ├── hooks/
+    │   │   ├── store/
+    │   │   └── api/
+    │   ├── .env.example
+    │   └── package.json
+    ├── docker-compose.yml
+    ├── setup.md
+    └── README.md
 ```
 
 ## What I'm following

@@ -4,4 +4,6 @@ echo "*.exe
 output/
 .vscode/
 mypart.md
-FullStack.pdf" > .gitignore
+FullStack.pdf" > 
+*.pdf
+.gitignore

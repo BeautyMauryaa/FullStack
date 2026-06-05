@@ -1,0 +1,80 @@
+//when we search any website or url it work like this:
+//browser-> internet-> server-> database-> server-> browser
+
+
+//Browser-> server-> db-> response:
+//for ex you are loging some account
+//user click login (email and pass)
+//button clicked
+//browser send that login request to the server POST /login (to check the detail)
+// server receives that request by using nodejs or nest js 
+// server verify that authentication detail like pas email
+// chaeck the data from db to match 
+//if match then server send request 200 to browser 
+//if didn't match then 404 error
+
+//after receiving response from server browser update the using
+
+//thats the complete workflow of anywebsite
+
+
+//HTTPS Basics: Hyper text transfer protocol (we can say the lang of browser and server by which both can talk)
+//ex: Get /users (to fetch the data )
+// Post /login (to send the data)
+
+//Most important http method is Get /user(fetch user),Post /user(create user), Put /user/1 (update user) , DELETE /users/1 (delete user)
+GET    → Read
+POST   → Create
+PUT    → Update
+DELETE → Delete
+
+
+//REST API: Rules for API design
+// for ex: /getAllUserData(bad request) the correct form is GET /users 
+
+//purpose of restapi is to write the api predictable,clean,and easy to understand
+
+//JSON: javascript object notation
+//its basically the format in which browser and server exachnge the data with each other
+
+
+
+for ex: 
+{
+    "name": "Nova,
+    "age":21,
+    "skills":["js","rect"]
+}
+
+
+//server:
+{
+    "success":true
+}
+
+//browser:
+{
+    "email" : "nova@gmail.com",
+    "password": "12345"
+}
+
+//note: json key always quoted
+
+
+//Status Code: server always send one code with response (the code define the request is succes or fail or error)
+//200 (succes code) like login successfully
+//400(bad request) like rquired field is missing
+//401(unauthorized) JWT TOKEN invaild like login required when we do with out signup
+//500 inernal server error(database crash)
+
+
+//Event loop and call stack(LIFO STACK):
+//event loop- continuously check the call stack is empty or not if empty then send the callback(settimeout,promise,etc) queue task to the call stack
+
+
+//HTTPS VS HTTP:
+//http: send tha data in plain text
+//while HTTPS send the datain encrypted form 
+//HTTP  is a protocol used for communication btw browser and server
+//HTTPS: is a secure version of http thats uses SSL/TLS encryption to protect data during transmission
+//SSL(secure socket layer/TLS(transport layer security): security technology which encrypt the data btw browser and server

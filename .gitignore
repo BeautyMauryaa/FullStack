@@ -1,9 +1,8 @@
-echo "*.exe
+*.exe
 *.o
 *.out
 output/
 .vscode/
 mypart.md
-FullStack.pdf" > 
+FullStack.pdf
 *.pdf
-.gitignore

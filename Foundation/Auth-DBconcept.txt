@@ -1,0 +1,256 @@
+//sql vs nosql:
+//sql(structured query lang) means store data in tabular form
+- ex: mysql,oracle,sql server,postgres
+
+//nosql(unstructured query lang) means store data in key value pair 
+- ex: mongodb,redis,elasticsearch
+
+//db: database
+//dbms: database management system
+
+
+//go deep in sql: 
+// this is called RDBMS (relational database management system)
+//adv: strong consistency,ACID transactions, complex joins, great fro banking ,payment ERP system 
+//disadv: slow performance,complex schema,high cost
+
+
+//ex: Transfer 1000
+//a=5000
+//b=2000
+
+//a-=1000
+//b+=1000
+
+//either both operation succeed or none of them succeed
+//never half complete
+
+
+//no sql: 
+// this is called non-relational database management system
+//ex: mongodb, cassandra, elasticsearch, redis
+
+//adv: fast performance,flexible schema,low cost
+//disadv: no strong consistency,no ACID transactions,no complex joins,no great fro banking ,no payment ERP system
+
+//ex: stores document in key value pair
+{
+    "id" : 1,
+    "name" : "mmsdnfm",
+    "email" : "user@gmail.com",
+    "password": "12345",
+    "skills": ["html","css","js"]
+}
+
+//no fixed schema required
+
+
+//choose sql when data relationships and consistency are important
+//choose nosql when data relationships and consistency are not important
+//ex: social media application in this case nosql is better
+//ex: banking application in this case sql is better
+
+//when mongodb: when you need to store document in key value pair
+//and when schema changes frequently and scalabity matter
+
+
+
+
+//mongodb collection and documents:
+//think: database -> collection -> document
+// like: school -> student collection -> student document
+
+//collection: equivalent to sql table
+//user product orders
+
+//document : equivalent to sql row
+{
+    "id":"123abc",
+    "name":"anthing",
+    "age":12
+}
+-> every document is JSON-like(BSON- binary JSON)
+
+
+
+
+//why mongodb so popular: 
+// because frontend already uses json 
+// backend sends: {"key":"value"} database stores : {"key":"value"}  no conversion headache
+
+//summary: 
+//sql: strong consistency,ACID transactions, complex joins, great fro banking ,payment ERP system 
+//nosql: fast performance,flexible schema,low cost
+//mongodb: no strong consistency,no ACID transactions,no complex joins,no great fro banking ,no payment ERP system
+
+
+
+3.Authentication vs Authorization:
+- Authentication: system verify who the user is
+- Authorization: system verify what user can do
+
+//ex: 
+// user login with username and password
+// server verify that authentication detail like pas email
+// chaeck the data from db to match
+//if match then server send request 200 to browser
+//if didn't match then 404 error
+//this is Authentication process
+
+//Authorization process:
+//user allowed to do something or not for ex on instagram
+//user are only allowed to post comment like 
+
+//real flow:
+//Login -> Authentication -> Get user identity -> autherization check -> allow /reject action
+
+
+
+4. Password Hashing: 
+- Password Hashing is a way to store password in a secure way
+//suppose pass: Beauty123
+
+json: {"password":"Beauty123"} what if database leak everyone sees the password in plain text
+
+so we use password hashing 
+ex: Beauty123 -> Hash function -> ajf8j3k4f8sdf89sdf
+store: {"password":"ajf8j3k4f8sdf89sdf"}
+
+//login flow: user enter pass -> system hashes again and then compare the new hash value with 
+db hash value if matches then login succes otherwise failed
+
+//why can't reverse the hash value?
+//hash value is random so can't reverse it and it is one way only can't go back to original value
+// ex: bcrypt argon2
+
+//note : never use MD5 SHA1 for password becuase it is too fast attackers can brute-force it means brute-force attack (brute force means try all possible value)
+// use bcrypt or argon2 for password hashing bcoz they are intentionally slow
+
+
+//why not encryt password:
+//we never need the original password again. we only need verification so hashing is safer than encryption
+
+
+5.JWT token concept:
+- JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object
+- this is the important part of modern authentication
+- tradition session:
+ user login -> server stores session -> session id sent to browser (server must remember everyone)
+
+ -> JWT Approach:
+ -> user login -> server creates JWT token -> JWT token sent to browser or client -> it stores token Authorization: Bearer TOKEN 
+ -> server verify token no db loopup required in this (stateless)
+
+//note: JWT is stateless means we don't need to store the user detail in the server or database
+
+//jsw structure: Header Payload Signature like xxxx.yyyy.zzzz
+
+.typical flow:
+Login
+ ↓
+Verify Password
+ ↓
+Generate JWT
+ ↓
+Send Token
+ ↓
+Client Stores Token
+ ↓
+Request With Token
+ ↓
+Verify JWT
+ ↓
+Access Granted
+
+
+//jwt cannot be easily revoked:
+//ex: user logs out token may still remain valid 
+//thats why many companies use access token -> refresh token instead of single jwt
+
+
+
+6.Typescript types vs interface:
+- typescript: typescript is a superset of javascript
+- interface: interface is used to define the structure of an object
+
+//ex:
+interface User{
+    name: string,
+    email: string,
+    password: string
+}
+
+
+//ex:
+type User={
+    name: string,
+    email: string,
+    password: string
+}
+
+//type used for primitive types(onject unions tuples premitives aliases) and interface used for complex types
+type Status =
+  | "success"
+  | "error"
+  | "loading";
+  //interface cannot do this directly
+
+
+
+interface primarily for object shape
+interface User {
+  name: string;
+  age: number;
+}
+
+
+//extension
+interface User {
+  name: string;
+}
+
+interface Admin extends User {
+  role: string;
+}
+
+//inetrface merging:
+interface User {
+  name: string;
+}
+
+interface Admin extends User {
+  role: string;
+}
+
+//automatically becomes:
+{
+ name:string;
+ age:number;
+}
+
+//type can't do this
+
+
+
+//note: for react/nestjs/node project:
+//interfaces -> object contracts
+//types -> unions, utility types complex compositions
+
+
+
+//how login works using hashing and JWT:
+1. User enters email and password.
+
+2. Backend finds user in database.
+
+3. Password is hashed and compared with stored bcrypt hash.
+
+4. If matched, server generates JWT containing user id and role.
+
+5. JWT is sent to client.
+
+6. Client sends JWT in Authorization header on future requests.
+
+7. Backend verifies JWT signature and extracts user information.
+
+8. Authorization middleware checks role/permissions before allowing access.

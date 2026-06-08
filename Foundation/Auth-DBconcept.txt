@@ -132,6 +132,14 @@ db hash value if matches then login succes otherwise failed
 
 
 5.JWT token concept:
+Note: (
+JWT is a signed token that securely stores user information
+ and proves a user's identity after login without requiring the server to store session data.
+remember this:
+Login → Server generates JWT → Client stores JWT → Client sends JWT with every request → Server verifies JWT and grants access.
+)
+
+
 - JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object
 - this is the important part of modern authentication
 - tradition session:

@@ -6,3 +6,134 @@ output/
 mypart.md
 FullStack.pdf
 *.pdf
+
+
+
+# 01-event-loop
+# 02-async-await
+# 03-env-variables          ← move this before error handling
+# 04-mvc-structure          ← move this up, it's the foundation
+# 05-middleware             ← includes cors + rate limiting
+# 06-error-handling         ← centralized error handler comes here
+# 07-password-hashing       ← bcrypt, no DB needed, just logic
+# 08-jwt                    ← access + refresh token together
+# 09-auth-middleware        ← verify JWT middleware
+# 10-rbac                   ← role based, builds on auth middleware
+# 11-logout-blacklist       ← builds on JWT knowledge
+# 12-helmet-security        ← security headers
+# 13-xss-sanitization       ← input sanitization
+# 14-file-upload            ← multer locally first
+# 15-cloudinary-upload      ← extends file upload
+# 16-webhooks               ← includes signature verification
+# backend-engineering/
+# │
+# ├── 01-event-loop/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 02-async-await/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 03-error-handling/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 04-env-variables/
+# │   ├── .env
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 05-mvc-structure/
+# │   ├── controllers/
+# │   ├── routes/
+# │   ├── services/
+# │   ├── models/
+# │   ├── app.js
+# │   └── notes.md
+# │
+# ├── 06-middleware/
+# │   ├── custom-middleware.js
+# │   ├── built-in-middleware.js
+# │   └── notes.md
+# │
+# ├── 07-cors/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 08-rate-limiting/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 09-user-schema/
+# │   ├── User.js
+# │   └── notes.md
+# │
+# ├── 10-password-hashing/
+# │   ├── bcrypt-demo.js
+# │   └── notes.md
+# │
+# ├── 11-jwt-access-token/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 12-jwt-refresh-token/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 13-auth-middleware/
+# │   ├── authMiddleware.js
+# │   └── notes.md
+# │
+# ├── 14-rbac/
+# │   ├── roleMiddleware.js
+# │   └── notes.md
+# │
+# ├── 15-logout-blacklist/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 16-helmet-security/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 17-xss-sanitization/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 18-file-upload/
+# │   ├── uploads/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 19-cloudinary-upload/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 20-webhooks/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 21-webhook-signature/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# ├── 22-centralized-error-handler/
+# │   ├── middleware/
+# │   ├── index.js
+# │   └── notes.md
+# │
+# └── 23-auth-api-project/
+#     ├── src/
+#     │   ├── config/
+#     │   ├── controllers/
+#     │   ├── routes/
+#     │   ├── services/
+#     │   ├── middleware/
+#     │   ├── models/
+#     │   ├── utils/
+#     │   └── app.js
+#     │
+#     ├── .env
+#     ├── package.json
+#     └── README.md

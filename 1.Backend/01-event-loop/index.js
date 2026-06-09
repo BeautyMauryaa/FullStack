@@ -52,5 +52,17 @@ console.log("end");
 //3. Callback queue (completed task wait here)
 
 
+const fs=require("fs");
+console.log("start");
+fs.readFile("data.txt", "utf8" ,(err,res)=>{
+    console.log(data);
+});
+
+console.log("end");
+
+
+
+//start end data 
+//fs.readfile asynchronous task so nod send file reading to os/thread
 
 

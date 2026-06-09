@@ -1,0 +1,19 @@
+//light web framework
+// built on top of Node.js (means foundation or environments provide by the node js)
+//it makes creating server,api and Backend applicationmuch easier remove boiler point code
+
+const express = require("express")
+
+const app=express();
+app.get("/",(req,res)=>{
+    res.end("welcome to home page");
+});
+
+app.get("/about",(req,res)=>{
+    res.end("welcome to contact page");
+})
+
+
+app.listen(3000);
+
+-> browser -> express -> node js -> os

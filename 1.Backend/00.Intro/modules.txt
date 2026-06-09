@@ -1,0 +1,20 @@
+//seperate file that contain codes which can be reused in other file
+//why need: 
+//without module: app.js with 500 lines of code complex hard to mannage
+
+//module break down the large application into small reusable ,manageable pieces of code while keep variavle safely isolated
+//each file has one responsibility
+
+
+//types of module: 
+//1.core module(built in module)
+//-node provide these by default no installation required
+//- fs,http,path,os,events 
+//- 
+//2.local module (created by u, your own file)
+//3.third party module (installed using npm)
+//ex: npm i express -> const express = require("express")
+
+
+
+

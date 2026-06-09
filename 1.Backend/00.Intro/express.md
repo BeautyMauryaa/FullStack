@@ -6,13 +6,12 @@ const express = require("express")
 
 const app=express();
 app.get("/",(req,res)=>{
-    res.end("welcome to home page");
+res.end("welcome to home page");
 });
 
 app.get("/about",(req,res)=>{
-    res.end("welcome to contact page");
+res.end("welcome to contact page");
 })
-
 
 app.listen(3000);
 

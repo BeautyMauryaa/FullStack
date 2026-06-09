@@ -1,3 +1,7 @@
+//before existing of express node js itself could create the server using the built in http modules
+// its program that listen for request from browser/client process that request and send back the response to the server or client
+
+
 const http = require("http");
 
 // const server=http.createServer((req,res)=>{

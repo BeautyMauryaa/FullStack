@@ -1,0 +1,17 @@
+// three things we are gonna cover in this: 
+//1. node + express
+//2. authentication system
+//3. webhook
+
+
+
+//1.Node js + Express:
+JavaScript is the language.
+
+Browser and Node.js are two different environments that run JavaScript.
+
+JavaScript
+    |
+    +--> Browser (Frontend)
+    |
+    +--> Node.js (Backend)

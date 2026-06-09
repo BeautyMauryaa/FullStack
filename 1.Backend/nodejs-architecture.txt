@@ -1,0 +1,45 @@
++---------------------+
+|     Application     |
+| (JavaScript Code)   |
++----------+----------+
+           |
+           v
++---------------------+
+|     Node.js APIs    |
+| (fs, http, net, etc)|
++----------+----------+
+           |
+           v
++---------------------+
+|     Event Loop      |
+|      (libuv)        |
++----------+----------+
+           |
+   +-------+-------+
+   |               |
+   v               v
+Thread Pool    OS Kernel
+(libuv)       (Sockets, I/O)
+   |               |
+   +-------+-------+
+           |
+           v
++---------------------+
+|      Callbacks      |
+|  Promises / Async   |
++---------------------+
+
+
+//step 1: 
+app.get("/users")
+fs.readFile()
+bcrypt.hash()
+User.find()
+
+//2. js doesn't know how to read file (fs.readFile()) so nodes provide extra api (fs api) to read the file
+//3. now event loop decide which task will execute first if some tasking is taking time then event loop send those task into thread pool(its like worker behind the loop)
+//4. then when task completed it inform to the event loop and event loop check the callstack if it is empty then it put that task into callstack and callstack print that task.
+
+
+//thread pool for these task
+//os kernal : for networking task like http tcp

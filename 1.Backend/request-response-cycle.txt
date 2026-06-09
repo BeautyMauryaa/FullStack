@@ -1,0 +1,32 @@
+// client/browser -> request -> server(through internet) -> processing -> response -> client/server
+-Note: 
+
+client request-> http request -> webserver
+webserver -> http response with status code(200,400,404,500) -> client
+
+
+
+//complete process:
+//1. client/ browser send request:
+
+GET /user -> it goes like this method: GET, url: /user, header:...,body:.. ,
+
+
+//2. Os recieve request by using listeing function
+app.listen(3000) port number: 3000 (browser-> port numbmer)
+- os accecpt the connection
+
+//3. event look gets notify by os 
+- os -> event loop
+
+//4.(express work) - it check routing
+// if routing match execute Callbacks
+// for ex the request is GET /user
+// it check does it exit if exits then execute callback otherwise error
+
+//5. request object created:
+//node js create req for ex cnsole.log(req.url) console.log(req.method)  
+// it contain everything which sent by the client 
+
+
+//6. 

@@ -17,4 +17,11 @@
 
 
 
+//import(use another exported file) and export(available this file to another file can use this )
 
+module.export{
+    add,
+    sub,
+}
+
+import add from "./math.js"

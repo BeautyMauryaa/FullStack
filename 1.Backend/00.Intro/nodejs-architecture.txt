@@ -43,3 +43,18 @@ User.find()
 
 //thread pool for these task
 //os kernal : for networking task like http tcp
+
+
+//client request -> node js (provide needed api) -> event queue -> event loop(fifo,pick the request from event queue) -> if non blocking process the request.
+//if non-blocking then request send to thread pool/os(network related task) -> 
+//request can be two types (blocking synchronous or non-blocking asynchronous)
+
+
+//we have limited thread
+//by default we have 4 thread
+
+//as per the cpus we have we can inscrease the thread to know that
+const os = require("os");
+console.log(os.cpus().length);
+
+

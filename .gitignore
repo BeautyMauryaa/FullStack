@@ -1,6 +1,7 @@
 *.exe
 *.o
 *.out
+/node_modules
 output/
 .vscode/
 mypart.md

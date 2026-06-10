@@ -1,14 +1,32 @@
-
 {
 
-  "name":"server",
-  "version":"1.0.0",
+  "name": "server",
+
+  "version": "1.0.0",
+
   "description": "ecommerse practice site",
+
   "main": "server.js",
-   "scripts": {
+
+  "scripts": {
+
     "start": "node server.js"
-   },
+
+  },
+
   "dependencies": {
+
     "prompt-sync": "^4.2.0"
-  }
+
+  },
+
+  "devDependencies": {},
+
+  "keywords": [],
+
+  "author": "",
+
+  "license": "ISC"
+
 }
+

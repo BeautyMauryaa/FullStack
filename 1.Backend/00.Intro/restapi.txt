@@ -15,3 +15,10 @@
 
 //rest resource thing: resource can be anything which is basically the endpoint in api 
 //for ex: api/update/user 
+
+
+//rest vs traditional api difference
+traditional -> return html,server render ui, full page reload
+rest -> return json(no conversion needed) , only data reload which is necessary , client renders ui
+
+

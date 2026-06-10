@@ -3,6 +3,7 @@
 
 
 const http = require("http");
+const { url } = require("inspector");
 
 // const server=http.createServer((req,res)=>{
 //     // console.log("new req received.");
@@ -65,3 +66,16 @@ const server = http.createServer((req, res) => {
 // 403 -> Forbidden
 //  404 -> Not Found
 // |500  -> Internal Server Error
+
+
+//http request: 
+// url(endpoint)
+// method 
+// body{
+//   ...
+// }
+
+
+// http response:
+// status Code
+// response body(json/html)

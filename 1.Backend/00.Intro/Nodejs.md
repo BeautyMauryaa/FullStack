@@ -41,4 +41,4 @@
 - single threaded(but still handle multiple users how? - > with the help of event loop)
 - it built on event drive, none blocking i/o architecture designed for handle many concurrent user efficiently.
 
-
+## sync and async

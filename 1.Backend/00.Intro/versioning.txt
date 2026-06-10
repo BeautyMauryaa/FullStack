@@ -1,0 +1,98 @@
+//APi design strategy use to manage breaking changes
+//we can update or redesign the backend without breaking the current ongoing version/application
+
+
+//nodejs-runs server
+//express- handling routing 
+//versionaing- api architecture
+//useally implement it through route structure like user/api/v1 and user/api/v2
+
+//without versioning: everyclient using the same endpoint any changes in application it will break the whole application.
+
+
+//with versioning 
+///api/v1/user
+//api/v2/user
+//api/v3/user 
+- all version will work
+
+
+# common versioning method:
+1.URL versioning
+- simplest way
+- api/v1/user -> app.use("api/v1",v1Routes)
+- api/v2/user -> app.use("api/v2",v2Routes)
+src/
+├── routes/
+│   ├── v1/
+│   │   └── user.routes.js
+│   └── v2/
+│       └── user.routes.js
+
+
+
+
+2.Header versioning:
+- instead of url use Header
+- less common harder to debug
+- API-version:2
+- app.use((req,res,next)=>{
+    const version=req.header["api-version"];
+    next();
+})
+
+
+
+3.query parameters versioning:
+-/api/user?version=2
+-not recommend for large system
+
+
+4.content negotiation versioning:
+- very advanced
+- Accept : application/vnd.learnex.v2+json
+
+
+# how it working:
+- req come: GET api/v2/user
+- express check routing app.use("/api/v2",v1routes) app.use("/api/v2",v2routing)
+- as per the match it send response
+
+#flow:
+1.request => 2.express router => 3.matches api/v2 => load v2routes => controller => response
+
+
+//note: express simply check which rout is matching and run that code.
+
+
+
+//folder struct:
+src/
+│
+├── api/
+│   ├── v1/
+│   │   ├── routes/
+│   │   ├── controllers/
+│   │   └── services/
+│   │
+│   └── v2/
+│       ├── routes/
+│       ├── controllers/
+│       └── services/
+
+
+v1 controller:
+exports.getuser=(req,res)=>{
+    res.json({
+        name: "nova"
+    })
+}
+
+v2 controller:
+exports.getuser=(req,res)=>{
+    res.json({
+        name:"nova",
+        role:"intern"
+    })
+}
+

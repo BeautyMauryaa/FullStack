@@ -18,7 +18,7 @@ app.get("/api/product/:id",(req,res)=>{
 })
 
 //to add product
-app.post("/api/addproduct",(req,res)=>{
+app.post("/api/product",(req,res)=>{
     const body=req.body;
     data.push(body);
     return res.status(201).json(

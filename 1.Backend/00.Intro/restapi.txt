@@ -1,0 +1,17 @@
+//set of rules for designing api
+
+# api - application programming interface
+- help to communicate btw frontend and backend (work as bridge)
+- for ex: 
+- click login button - > api(api/post/user) sent to the server -> backend receive and response 
+
+
+
+# REST api -> Representational state transfer
+- standard way to designing api using http
+- Stateless : every req must conatin all information , server doesn't remember the previous request(req must send with token)
+
+
+
+//rest resource thing: resource can be anything which is basically the endpoint in api 
+//for ex: api/update/user 

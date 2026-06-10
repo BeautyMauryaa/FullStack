@@ -1,0 +1,31 @@
+// every router handlers gets two obj
+- req : req object (send by the client/ browser) 
+. it contain everything sent by
+
+- res: res object (send back by the server)
+. res contain everything sent back by browser with status code
+
+//flow:
+browser -> req -> server -> res -> browser
+
+# req object contain:
+req.params => route parameters for ex api/user/5 
+req.url    =>   current url
+req.method => tells which http method was used 
+req.body   => contain req data 
+req.headers =>conatin header authorizatin :bearer abc224
+req.query  => query parameters GET api/product?page=2&limit=10 output req.query { page: 2, limit: 10}
+
+
+#res object:
+res.send()
+res.json() -> convert data into json format
+res.status() 
+res.sendstatus()
+res.redirect() moves to new page for ex: res.redirect("/login) -> browser will moves to login page
+res.end() 
+
+
+
+
+

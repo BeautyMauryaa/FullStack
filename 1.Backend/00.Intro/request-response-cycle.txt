@@ -30,3 +30,13 @@ app.listen(3000) port number: 3000 (browser-> port numbmer)
 
 
 //6. 
+
+
+
+
+//req-res-object:
+req.params: use to take the dynamiv value from url path(ex: api/user/:userId)
+req.header:use to get the specific incoming request from http server(hidden meta data that browser or api client send along with url)
+req.query:object that contain the key value pair from url string(ex: api/product?price<=1000)
+res.json:
+                                                                

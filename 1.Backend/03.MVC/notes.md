@@ -72,3 +72,67 @@ const fetchproduct= aysnc ()=>{
 //product route.js
  app.route( 'api/product',getproduct);
  app.route('api/product/:name',addproduct)
+
+```
+
+ ### production mvc structure:
+ src/
+│
+├── config/
+│   ├── db.js
+│   └── env.js
+│
+├── controllers/
+│   ├── auth.controller.js
+│   ├── user.controller.js
+│   └── course.controller.js
+│
+├── routes/
+│   ├── auth.routes.js
+│   ├── user.routes.js
+│   └── course.routes.js
+│
+├── models/
+│   ├── User.js
+│   └── Course.js
+│
+├── middlewares/
+│   ├── auth.middleware.js
+│   ├── logger.middleware.js
+│   └── error.middleware.js
+│
+├── services/
+│   ├── auth.service.js
+│   └── user.service.js
+│
+├── utils/
+│   ├── jwt.js
+│   └── response.js
+│
+├── app.js
+└── server.js
+
+
+# responsibility of each folder:
+1. server.js -> entry point (start server(network bootloader))
+2. app.js -> configure express application instance 
+  job: create express app, register middleware, register route
+3. routes -> url mapping
+4. controller -> handle request and response
+5. models -> database structure
+6. middleware -> runs in btw receiving client request and sending server response , run before controller, check user before entering.
+ - for ex: logger: who made request?
+            auth: is user logged in?
+            validation: data correct?
+            error handler: handle error globally
+
+
+7. services: Business logic
+8. utils: reusable helper code
+9. config: application configuration (database connection,.env)
+
+
+# complete request workflow:
+client -> request -> route -> middleware->controller -> service ->model-> database -> response
+
+

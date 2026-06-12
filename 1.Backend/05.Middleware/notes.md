@@ -90,4 +90,42 @@ app.get("/profile",
 
 
 ### built in middleware: 
+1. express.json() -> convert the json body into js object (without this- undefined)
+2. express.static() -> used to serve static file 
+- app.use (express.static("public")); img,logo,png etc
+/profile/logo.png
+
+3. express.urlencoded() -> used when data comes from html file
+ex: 
+```
+<form method="POST">
+    <input name="username">
+    <button>Submit</button>
+</form>
+
+-> middlware app.use(express.urlencoded({extended: true})); (extended true: can handle nested object and array)
+-> console.log(req.body);
+-> { username:"nova"};
+
+```
+### error handling:
+- it has 4 parameters err,req,res,next
+```
+app.use((err,req,res,next){
+    res.status(500).json({
+        message: err.message;
+    })
+    
+})
+```
+
+
+### mvc project middleware order:
+1. general
+2. specific
+3. error handler(it should always be in last)
+
+- client request flow structure: 
+client -> express.json() -> logger -> COrs/security -> auth middleware -> route -> controller -> service -> database -> response.
+
 

@@ -1,0 +1,1 @@
+- it limits how many request a user can make in a certain time period.

@@ -1,8 +1,8 @@
 ### CORS:
 - cross origin resource sharing
-- as per the browser policy: when different origin tried to tak each other then browser block it by default (different origin -> blocked)
+- as per the browser policy: when different origin tried to talk to each other then browser block it by default (different origin -> blocked)
 
-- cors allow which origin are allowed to talk to this origin
+- cors allow which origin are allowed to talk to the current origin
 - without cors it will be blocked by browser
 - it is a browser feature only
 
@@ -20,3 +20,10 @@ origin: protocol+ domain + port
 ### middleware flow: 
 - Request -> CORS middleware -> auth middleware -> route handler -> response
 
+Frontend Request
+       ↓
+   CORS Guard
+       ↓
+Allowed? ── Yes → Route
+       │
+       └── No → Browser blocks

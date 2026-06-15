@@ -2,7 +2,7 @@
 - it has free will to do anything with the incoming request and outgoing response
 - it can terminate the request- response cycle
 - execute any code
-- or can call to the another middle ware or next() function
+- or can call to the another middle ware with the help of  next() function
 
 
 ### workflow:
@@ -36,7 +36,7 @@ app.listen(3000);
 - req : reqest object (contain req url method all information about client req)
 - res:  res object 
 - next() : it is function to call the next middleware or route when current middleware work done
-- without next() code will stuct bcoz the express doesn't knwo what to do next.
+- without next() code will stuct bcoz the express doesn't know what to do next.
 - call back argument to the middleware function
 
 - app.use() -> run this middleware first for every request
@@ -103,7 +103,8 @@ ex:
     <button>Submit</button>
 </form>
 
--> middlware app.use(express.urlencoded({extended: true})); (extended true: can handle nested object and array)
+-> middlware app.use(express.urlencoded({extended: true})); 
+-> (extended true: can handle nested object and array)
 -> console.log(req.body);
 -> { username:"nova"};
 

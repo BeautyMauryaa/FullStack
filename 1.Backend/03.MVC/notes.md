@@ -17,7 +17,7 @@
 1. route -> only job take the request and pass to the correct controller
 2. controller -> receive request as per the request calls that service, send response
 3. service ->  does the actual logic, return result to the controller 
-4. controller -> recive that request send to the client
+4. controller -> receive that request send to the client
 
 
 # real ex:
@@ -35,7 +35,7 @@ for ex the req is : GET API/PRODUCT
 
 //without mvc: one file for everything(messy hard to manage and understand)
 
-// with mvc : each file have their own task (each part does one job easy to fix and manage and understand)
+// with mvc : each files have their own task (each part does one job easy to fix and manage and understand)
 
 
 

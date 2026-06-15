@@ -56,4 +56,3 @@ module.exports=mongoose.model("user",schema)
 
 
 //improvement : always try to create model file like this; user.model.js student.model.js
-// 

@@ -26,4 +26,4 @@ Frontend Request
        ↓
 Allowed? ── Yes → Route
        │
-       └── No → Browser blocks
+       └── No → Browser blocks 

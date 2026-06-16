@@ -1,3 +1,4 @@
+//schema: how data be structured and will be stored in mongodb
 // user schema: it is all about what information do i need about user.
 // basic information:
 // name,email,pass,phone number, role, profile picture, created at
@@ -56,3 +57,7 @@ module.exports=mongoose.model("user",schema)
 
 
 //improvement : always try to create model file like this; user.model.js student.model.js
+
+
+//embed vs reference: 
+//embed: 

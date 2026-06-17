@@ -50,3 +50,16 @@ fileFilter:function(req,file,cb){
 }
 //cb it is just js variable in the place of callback (req,file,callback)
 //mimetype: multipurpose internet mail extension type(file's type/category).
+
+
+//how multer work internally: 
+//without multer: req.body-> only contain text, file is sent as binary data (multer parses it and creates)
+
+
+//project knowledge:
+//store image path in db -> upload file req.file.path -> save user.profileimage=req.file.path;
+//serve uploaded files: app.use("upload", express.static("upload"));
+
+
+//ex workflow:
+//user uploaded img -> multer saves file -> path stored in DB -> frontend receive url -> img displayed

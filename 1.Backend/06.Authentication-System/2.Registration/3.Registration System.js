@@ -1,3 +1,9 @@
+//when an user creates a new account(sigh up)
+// user -> fill form -> send data -> backend validation -> database storage -> account created
+
+
+
+//user schema and model design: 
 //schema: how data be structured and will be stored in mongodb
 // user schema: it is all about what information do i need about user.
 // basic information:
@@ -59,5 +65,6 @@ module.exports=mongoose.model("user",schema)
 //improvement : always try to create model file like this; user.model.js student.model.js
 
 
-//embed vs reference: 
-//embed: 
+
+//registration system flow: 
+//recieve data -> validate fields -> check name and email -> validate pass -> hashed pass -> save user -> server response

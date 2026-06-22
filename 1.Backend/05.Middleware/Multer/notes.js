@@ -77,7 +77,7 @@ const storage = multer.diskStorage({
 
 
 //notes:
-const storage=multer.diskStorage(...)
+// const storage=multer.diskStorage(...)
 //creates storage configuration that tells mutliple:
 //1.destination: "where to save the file"
 //2.filename: provide a unique name to uploaded file

@@ -1,3 +1,3 @@
 //access token: temporary entry pass
 
-//refresh token:
+//refresh token: only used to get new access token

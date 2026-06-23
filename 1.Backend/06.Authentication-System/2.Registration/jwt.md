@@ -28,3 +28,66 @@ JWT proves whether the data was modified.
 // playload - container
 //claims - individual piece of information inside it.
 
+
+
+without jwt: login -> server remember user -> session stored
+with jwt: login -> server creates token -> client store that token -> send with every request
+
+- creating jwt:
+```
+const token = jwt.sign(
+    {
+      id:user._id,
+      role:user.role
+    },
+    process.env.JWT_SECRET{
+        expiresIn:"1hr",
+    }
+)
+
+```
+
+
+//when server creates jwt and sent to the client then with every request client sent jwt to the server like this..
+
+Authorization: Bearer JWT_TOKEN
+
+- SERVER RECEIVE TOKEN  AND VERIFY:
+
+```
+jwr.verify(
+    token,
+    process.env.JWT_SECERET
+)
+
+- server check signature valid,expired? , valid?
+
+```
+
+
+### decode and verify
+- decode = only reads the playload no security checkup jwt.decode(token)
+- verify = check all jwt.verify(token,SECERT); signature,expiry , authentication
+
+# jwt is signed not encrypted 
+
+
+
+### jwt Authentication Flow:
+Signup
+  ↓
+User stored in DB
+  ↓
+Login
+  ↓
+Password verified
+  ↓
+JWT generated
+  ↓
+Client stores JWT
+  ↓
+Client sends JWT
+  ↓
+Server verifies JWT
+  ↓
+Access granted

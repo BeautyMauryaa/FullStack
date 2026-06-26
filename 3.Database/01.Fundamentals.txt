@@ -1,0 +1,31 @@
+1. Why Database?
+- we use db because js variables stores in ram(which is volatile memory) means when the application will be restart or refresh that data will be lost...
+- so that's why we stores in db because db store data in disk(ssh/ssd) which is permanent memory 
+
+=> the database gives us persistent storage
+- RAM(temp) -> server restart/refresh -> data lost , db (stores in disk) -> server restart -> data still exists
+
+
+2. What is MongoDB?
+-  no sql database that stores data in document format (json format(internally BSON format))
+- database -> collection -> documents
+
+=> why was mongodb crearted:
+- traditonal sql db requires fixed schema, mongodb allows differents can have differents fiels(flexible)
+
+3. BSON(BINARY JSON) vs JSON
+-> mongodb stores json(but internally it stores in the form of BSON)
+-> mongodb converts json in BSON before storing it
+-> json( limited data type) & bson(extensive data type)
+-> we mainly write json but mongodb convert that json into bson (like objectID this is bson)
+
+
+4. MongoDB Architecture
+-  application -> mongodb server-> database -> document -> collection
+
+
+5. Install MongoDB
+6. Compass => it is mongodb GUI
+7. Atlas => mongodb hosted in cloud
+
+8. CRUD using Mongo Shell - create, read, update, delete

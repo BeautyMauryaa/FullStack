@@ -96,3 +96,26 @@ const User=new User(
 // Client -> express -> mongoose connection -> schema -> validation -> model -> Document -> MOngoDb 
 
 
+
+
+//MongoDB Database
+//         │
+//         ▼
+// Collection
+//         │
+//         ▼
+// Documents
+//         ▲
+//         │
+// Model
+//         ▲
+//         │
+// Schema
+//         ▲
+//         │
+// JavaScript Object
+
+
+//code order:
+//  Connect to MongoDB -> create schema -> create model -> create document -> validate -> save -> store in mongodb
+        

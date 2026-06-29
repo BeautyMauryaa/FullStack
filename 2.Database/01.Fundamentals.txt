@@ -11,7 +11,7 @@
 - database -> collection -> documents
 
 => why was mongodb crearted:
-- traditonal sql db requires fixed schema, mongodb allows differents can have differents fiels(flexible)
+- traditonal sql db requires fixed schema, mongodb can have differents fiels(flexible)
 
 3. BSON(BINARY JSON) vs JSON
 -> mongodb stores json(but internally it stores in the form of BSON)

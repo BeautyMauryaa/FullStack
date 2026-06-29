@@ -1,0 +1,11 @@
+CRUD: basic database action that every application needs to manage database
+mongoose provides simple built in function to execute each of these operation
+CRUD: create - Mondel.create(), read/view - Model.find(), update - Model.updateOne(),delete - Model.deleteOne()
+
+
+
+workflow:
+Connection -> schema -> model -> CRUD
+- without model we can't perform CRUD
+- because all crud operation are performed on the model
+

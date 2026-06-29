@@ -1,4 +1,8 @@
 const express = require("express");
+const ConnectDB= require("./db");
+const Student= require("./Models/student");
+
+
 const app = express();
 app.use(express.json());
 

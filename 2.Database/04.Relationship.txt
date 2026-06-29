@@ -1,0 +1,28 @@
+// in sql we use foreign key to create relationship between tables
+- suppose we have users courses and notes  so how do we connect a user with their notes and course .. so there are two ways.
+
+- in mongodb we mainly use:
+1. Embedded Documents
+2. Referencing (ObjectId)
+
+1. Embedded Documents: store related data inside the same documents
+- embedded documents are documents that are stored inside another document
+- suppose an order contains product
+- instead of storing products seperately we store them inside the order
+
+//models/course.js
+
+const mongoose=require("mongoose");
+const lessionSchema=new mongoose.Schema({
+    title:String,
+    duration:Number,
+});
+
+const courseSchema=new mongoose.Schema({
+    title:String,
+    lessions:[lessionSchema] //embedded array
+});
+
+module.exports=mongoose.medel("Course",courseSchema);
+
+

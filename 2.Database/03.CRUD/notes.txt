@@ -9,3 +9,34 @@ Connection -> schema -> model -> CRUD
 - without model we can't perform CRUD
 - because all crud operation are performed on the model
 
+
+
+Complete CRUD Lifecycle
+Imagine a student's journey through your application:
+
+
+             New Admission
+                  │
+                  ▼
+          Student.create()
+                  │
+                  ▼
+        Stored in MongoDB
+                  │
+      ┌───────────┼───────────┐
+      ▼           ▼           ▼
+ Student.find() Student.findOne() Student.findById()
+      │           │           │
+      └───────────┼───────────┘
+                  ▼
+          Student.updateOne()
+                  │
+                  ▼
+     Student.findByIdAndUpdate()
+                  │
+                  ▼
+      Student.deleteOne() /
+ Student.findByIdAndDelete()
+                  │
+                  ▼
+      Removed from MongoDB

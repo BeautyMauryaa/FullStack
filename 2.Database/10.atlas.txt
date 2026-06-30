@@ -1,0 +1,23 @@
+- local mongodb - run only on your pc 
+- atlas: database runs on mongodb cloud server
+
+
+
+- it is mongdb cloud database services
+- instead of installing mongodb on laptop,mongodb host the db 
+
+
+React App
+     │
+Express API
+     │
+Internet
+     │
+MongoDB Atlas 
+- The database is online 24/7.
+
+
+mongodb- runs on pc, only you can access it, no internet needed
+mongodb atlas: runs in the cloud, accessible from anywhere(with permission), internet required
+
+

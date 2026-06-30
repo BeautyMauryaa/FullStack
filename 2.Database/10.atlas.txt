@@ -6,7 +6,6 @@
 - it is mongdb cloud database services
 - instead of installing mongodb on laptop,mongodb host the db 
 
-
 React App
      │
 Express API
@@ -19,5 +18,3 @@ MongoDB Atlas
 
 mongodb- runs on pc, only you can access it, no internet needed
 mongodb atlas: runs in the cloud, accessible from anywhere(with permission), internet required
-
-

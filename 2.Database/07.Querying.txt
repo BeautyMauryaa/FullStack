@@ -7,3 +7,9 @@ const product=await product.find(
          brand: "apple"
     }
 )
+
+1. filtering
+2. projection: retrive only specific field
+User.find({
+    "name email"
+})

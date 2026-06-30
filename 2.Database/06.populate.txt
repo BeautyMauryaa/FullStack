@@ -21,4 +21,62 @@ Order
        ├── name : Laptop
        └── price: 70000
 
-       
+
+
+
+- how populate work internally:
+
+Post.find().populate("author");
+step1 : get all post:
+Posts Collection
+
+Title
+Author ID
+
+MongoDB
+685fd81...
+
+
+step2: collect all author id 
+step3: search the user collection
+Users
+
+685fd81...
+
+↓
+
+Found Nova
+
+step4: replace the id with real complete data
+Post
+
+↓
+
+Author
+
+↓
+
+Full User Document
+
+
+
+
+=> Visual flow:
+Posts Collection
+
+author:ObjectId
+      │
+      ▼
+populate("author")
+      │
+      ▼
+Search User Collection
+      │
+      ▼
+Find Matching _id
+      │
+      ▼
+Replace ObjectId
+      │
+      ▼
+Return Full User

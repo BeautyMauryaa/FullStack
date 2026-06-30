@@ -61,3 +61,12 @@ notes collection:
      "content:"Authentication"
 }
 
+
+
+
+
+- embedded vs Reference:
+- good for small data       - good for large relationship
+- stores complete object     - stores ObjectId
+- one query                   - often need populate()
+- faster reads                  - better scalability

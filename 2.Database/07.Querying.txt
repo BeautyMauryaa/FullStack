@@ -1,0 +1,9 @@
+- finding document in mongodb based on some conditions
+- database -> apply condition -> return output based on condition
+
+const product=await product.find(
+    {
+
+         brand: "apple"
+    }
+)

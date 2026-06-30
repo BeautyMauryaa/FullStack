@@ -1,0 +1,16 @@
+- unique 12 byte of binary value (24 hexadecimal char)
+- when we insert nay document mongodb automatically creates unique id which is called ObjectId
+- 
+
+for ex:
+ await Student.create({
+    title: "cpp",
+    content:"pattern"
+ })
+
+stored in mongodb: 
+ {
+     _id: ObjectId("685fd81ad89f67b7d7e5a12"),
+     title:"cpp",
+     content:"pattern"
+ }

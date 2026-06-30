@@ -6,9 +6,22 @@
 2. Referencing (ObjectId)
 
 1. Embedded Documents: store related data inside the same documents
-- embedded documents are documents that are stored inside another document
 - suppose an order contains product
-- instead of storing products seperately we store them inside the order
+- instead of storing products seperately we store them inside the same document
+- ex: 
+{
+    "id":"ud",
+    "name":"nova",
+    "notes":[
+      {
+         "title": "JWT",
+      "content": "Authentication"
+      },{
+      "title": "MongoDB",
+      "content": "NoSQL"
+      }
+    ]
+}
 
 //models/course.js
 
@@ -25,4 +38,26 @@ const courseSchema=new mongoose.Schema({
 
 module.exports=mongoose.medel("Course",courseSchema);
 
+
+
+
+
+
+
+2. Referencing: instead of storing the whole collection inside the same document, store only its id
+ex: 
+user collection:
+{
+    "id":"123ab",
+    "name": "beauty",
+    "course":"bca"
+}
+
+
+notes collection:
+{
+    "id":"123ab",
+    "title":"jwt",
+     "content:"Authentication"
+}
 

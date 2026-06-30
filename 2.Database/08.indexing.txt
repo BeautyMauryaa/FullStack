@@ -1,0 +1,16 @@
+- used to avoid collection scan 
+- it helps to fetch the data quickly
+- with an indexing:
+Index -> Authentication -> page231 : jump directly to that page
+
+userSchema.index({
+    email:1
+})
+
+- multiple indexing:
+UserSchema.index({
+    email:2,
+    role:-1
+})
+
+- firstly it will find email and role 

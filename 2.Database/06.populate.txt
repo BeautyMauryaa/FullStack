@@ -1,0 +1,24 @@
+- it is way to fetching related data 
+- it replace the object id with actual data
+
+
+- Without populate()
+
+Order
+│
+├── customer : 685fd81...
+└── product  : 685fd92...
+
+
+- after using populate:
+Order
+│
+├── customer
+│      ├── name : Nova
+│      └── email: nova@gmail.com
+│
+└── product
+       ├── name : Laptop
+       └── price: 70000
+
+       

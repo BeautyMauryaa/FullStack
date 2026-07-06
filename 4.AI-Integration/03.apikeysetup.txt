@@ -1,0 +1,9 @@
+Work flow:
+User -> react -> express backend -> gemini api -> gemini model -> generated answer -> backend -> react -> user
+
+
+
+// request -> api key + prompt
+Backend -> prompt ex: What is JWT? -> gemini -> processes prompt -> generates response -> return json
+
+

@@ -1,0 +1,37 @@
+            User
+              │
+              ▼
+     Click "Summarize"
+              │
+              ▼
+          React UI
+              │
+              ▼
+     POST /summarize
+              │
+              ▼
+       Express Backend
+              │
+              ▼
+ Create AI Prompt
+              │
+              ▼
+       Gemini API
+              │
+              ▼
+     Google AI Model
+              │
+              ▼
+   AI Generated Summary
+              │
+              ▼
+       Express Backend
+              │
+              ▼
+      JSON Response
+              │
+              ▼
+          React UI
+              │
+              ▼
+         User Sees Result

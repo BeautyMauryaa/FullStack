@@ -1,0 +1,24 @@
+User
+   │
+   ▼
+Frontend
+   │
+   ▼
+Backend
+   │
+   ▼
+Gemini API
+   │
+   ├── Success
+   │      ▼
+   │   AI Response
+   │
+   └── Error
+          ▼
+   Catch Error
+          ▼
+    Log Error
+          ▼
+Fallback Response
+          ▼
+Frontend

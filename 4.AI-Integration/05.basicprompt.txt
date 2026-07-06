@@ -1,0 +1,13 @@
+Role (Tell AI who it should act as. ex: You are a senior MERN developer.)
+↓
+
+Task (What should AI do? ex: Explain , summarize etc)
+↓
+
+Context (Give necessary information. ex: Explain the following JWT middleware used in Express.)
+↓
+
+Output Format (Tell AI how you want the answer. ex: Return: 5 bullet points, Maximum 100 words, Beginner-friendly)
+↓
+
+Constraints (Add limits. ex: Don't use technical jargon, Explain with real-life examples, Keep it under 200 words, Use C++ only.)

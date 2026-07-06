@@ -17,3 +17,30 @@ ORDER BY salary DESC
 -- equivalent to Mongodb: select.find().sort({salary:-1})
     
 
+-- 4. GROUP BY: Group data based on sepecific column
+SELECT department,
+COUNT(*),
+FROM employees,
+GROUP BY department
+-- equivalent to Mongodb: 
+-- employees.aggregate(
+-- [
+--     {
+--         $group:{
+--             _id: "$department",
+--             count:{$sum:-1}
+--         }
+--     }
+-- ]
+-- )
+
+
+
+
+-- | SQL                      | NoSQL                                         |
+-- | ------------------------ | --------------------------------------------- |
+-- | Tables                   | Collections                                   |
+-- | Rows                     | Documents                                     |
+-- | Fixed Schema             | Flexible Schema                               |
+-- | PostgreSQL, MySQL        | MongoDB                                       |
+-- | Relationships using JOIN | Relationships using `ObjectId` + `populate()` |

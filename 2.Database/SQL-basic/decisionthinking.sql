@@ -1,6 +1,6 @@
 -- when should use sql and nosql
 -- if data is  very structured then go with sql
--- if the shcema changed frequently then go with mongodb (no sql)
+-- if the schema change frequently then go with mongodb (no sql)
 
 -- Is data structured?
 

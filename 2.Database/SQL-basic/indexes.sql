@@ -1,6 +1,7 @@
 -- index work same as mongodb 
 CREATE index idx_email
 on employees(email);
+-- equivalent to mongodb : userschema.index({email: 1})
 
 -- now when we search:
 SELECT * FROM employees,

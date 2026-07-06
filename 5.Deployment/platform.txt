@@ -1,0 +1,109 @@
+Development vs Production
+
+While coding:
+
+Development
+
+↓
+
+localhost
+
+↓
+
+Only Developer
+
+After deployment:
+
+Production
+
+↓
+
+Internet
+
+↓
+
+Real Users
+
+
+
+### What Gets Deployed?
+
+A full-stack application has three major parts.
+
+Frontend
+
+↓
+
+Backend
+
+↓
+
+Database
+
+All three need to be available online.
+
+Frontend
+
+React
+
+↓
+
+Usually deployed on:
+
+Vercel
+Netlify
+Backend
+
+Node + Express
+
+↓
+
+Usually deployed on:
+
+Render
+Railway
+AWS
+DigitalOcean
+Database
+
+MongoDB
+
+↓
+
+MongoDB Atlas
+
+Cloud database
+
+
+
+### .ENV:
+             Render
+
+        Environment Variables
+
+        JWT_SECRET=abcd
+
+        MONGO_URI=xyz
+
+        GEMINI_KEY=123
+
+                 │
+
+                 ▼
+
+        Node Process Starts
+
+                 │
+
+                 ▼
+
+           process.env
+
+                 │
+
+                 ▼
+
+          Your Express App
+
+
+          

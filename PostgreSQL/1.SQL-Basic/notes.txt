@@ -1,0 +1,11 @@
+Level 1 – SQL Basics (Must Know)
+What is a relational database?
+Tables, Rows, Columns
+Data Types
+INT
+VARCHAR
+TEXT
+BOOLEAN
+DATE
+TIMESTAMP
+

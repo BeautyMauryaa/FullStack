@@ -1,0 +1,7 @@
+Level 6 – Joins (Most Important)
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN (know what it is)
+
+Most PERN interview questions revolve around joins and relationships.

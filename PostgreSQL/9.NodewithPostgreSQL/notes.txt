@@ -1,0 +1,10 @@
+Level 9 – Node + PostgreSQL
+
+Using the pg package:
+
+Connection Pool
+Parameterized Queries ($1, $2)
+CRUD from Express
+Transactions (basic)
+
+Parameterized queries are considered essential for security because they prevent SQL injection.

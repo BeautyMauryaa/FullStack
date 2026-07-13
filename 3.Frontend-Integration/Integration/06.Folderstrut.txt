@@ -1,0 +1,61 @@
+my-app/
+│
+├── public/
+│
+├── src/
+│   ├── assets/
+│   │     ├── images/
+│   │     ├── icons/
+│   │     └── styles/
+│   │
+│   ├── components/
+│   │     ├── Button.jsx
+│   │     ├── Navbar.jsx
+│   │     ├── Footer.jsx
+│   │     └── Loader.jsx
+│   │
+│   ├── pages/
+│   │     ├── Home.jsx
+│   │     ├── Login.jsx
+│   │     ├── Register.jsx
+│   │     ├── Dashboard.jsx
+│   │     └── Profile.jsx
+│   │
+│   ├── hooks/
+│   │     └── useAuth.js
+│   │
+│   ├── services/
+│   │     ├── api.js
+│   │     └── authService.js
+│   │
+│   ├── utils/
+│   │     ├── helpers.js
+│   │     └── validators.js
+│   │
+│   ├── context/
+│   │     └── AuthContext.jsx
+│   │
+│   ├── routes/
+│   │     └── ProtectedRoute.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── package.json
+└── vite.config.js
+
+
+
+| Folder        | Purpose                                   |
+| ------------- | ----------------------------------------- |
+| `assets/`     | Images, icons, fonts, CSS                 |
+| `components/` | Reusable UI (Button, Card, Navbar, Modal) |
+| `pages/`      | Full pages connected to routes            |
+| `hooks/`      | Custom hooks like `useAuth`, `useFetch`   |
+| `services/`   | Axios instance and API calls              |
+| `utils/`      | Helper functions and validators           |
+| `context/`    | React Context providers                   |
+| `routes/`     | Protected/Public route components         |
+| `App.jsx`     | Main application component                |
+| `main.jsx`    | React entry point                         |

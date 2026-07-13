@@ -1,0 +1,33 @@
+// it cann't be access by js
+//only browser can send and read
+
+//this help to protect authentication cookies from many CROSS SITE SCRIPTING ATTACT.
+
+User Login
+      │
+      ▼
+React sends email & password
+      │
+      ▼
+Express verifies user
+      │
+      ▼
+Server creates JWT
+      │
+      ▼
+Set-Cookie: token=JWT; HttpOnly
+      │
+      ▼
+Browser stores cookie
+      │
+      ▼
+Future requests
+      │
+      ▼
+Browser automatically sends cookie
+      │
+      ▼
+Backend verifies JWT
+      │
+      ▼
+Protected response

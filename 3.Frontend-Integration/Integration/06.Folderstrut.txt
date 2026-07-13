@@ -59,3 +59,5 @@ my-app/
 | `routes/`     | Protected/Public route components         |
 | `App.jsx`     | Main application component                |
 | `main.jsx`    | React entry point                         |
+
+

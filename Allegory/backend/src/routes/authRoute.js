@@ -3,16 +3,17 @@
 
 
 import { Router } from "express";
+import {signup,login} from "../controller/authController.js"
 const routes=Router();
 
 
 //register
-app.post("/sighup",userController.sighup, (req,res) =>{
-    res.send("sighup page fetched successfully");
+router.post("/signup",authController.signup, (req,res) =>{
+    res.send("signup page fetched successfully");
 });
 
 
-app.get("/login", userController.login, (req,res)=>{
+router.get("/login",authController.login, (req,res)=>{
     res.send("login page fetch successfully");
 })
 

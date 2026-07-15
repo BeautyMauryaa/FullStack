@@ -20,3 +20,11 @@ No perfection
 ✔ MongoDB Connected
 
 ✔ User Schema
+
+Day 2
+
+✔ Register
+
+✔ Login
+
+✔ JWT

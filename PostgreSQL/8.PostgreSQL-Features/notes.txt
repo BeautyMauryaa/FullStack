@@ -1,5 +1,0 @@
-Level 8 – PostgreSQL Features
-SERIAL / IDENTITY
-RETURNING
-UUID (basic usage)
-JSON / JSONB (basic idea)

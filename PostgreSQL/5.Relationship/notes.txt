@@ -1,6 +1,0 @@
-Level 5 – Relationships (Very Important)
-Primary Key
-Foreign Key
-One-to-One
-One-to-Many
-Many-to-Many

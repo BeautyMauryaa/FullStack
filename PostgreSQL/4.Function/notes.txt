@@ -1,8 +1,0 @@
- Level 4 – Functions
-COUNT()
-SUM()
-AVG()
-MIN()
-MAX()
-GROUP BY
-HAVING

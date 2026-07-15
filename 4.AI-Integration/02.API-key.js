@@ -21,4 +21,3 @@
 
 //never hardcoded the api key
 //always stored in .env file
-

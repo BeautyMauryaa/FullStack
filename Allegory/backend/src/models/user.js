@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.schema(
+const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -33,5 +33,6 @@ const userSchema = new mongoose.schema(
   },
   { timestamps: true },
 );
-
-export default userSchema;
+const User = mongoose.model("user",userSchema)
+export default user;
+//ragex: regular expression simple check whether a string is following the certain format or not 

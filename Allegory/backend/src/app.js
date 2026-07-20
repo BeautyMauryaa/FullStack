@@ -2,6 +2,7 @@
 
 import express from "express";
 import cors from "cors"; //allow request from diff origin
+import authRoute from "../src/routes/authRoute.js"
 const app=express();
 
 //middleware 
@@ -9,6 +10,8 @@ app.use(cors()); //every incoming request firstly go through from the cors middl
 app.use(express.json());
 
 //route:
+//REGISTER AUTH ROUTES:
+app.use("/api/auth",authRoute);
 //1.test route:
 app.get("/",(req,res)=>{
     res.status(200).json({

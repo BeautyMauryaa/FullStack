@@ -3,6 +3,9 @@
 import express from "express";
 import cors from "cors"; //allow request from diff origin
 import authRoute from "../src/routes/authRoute.js"
+import noteRoute from "../src/routes/notesRoute.js"
+
+
 const app=express();
 
 //middleware 
@@ -12,6 +15,8 @@ app.use(express.json());
 //route:
 //REGISTER AUTH ROUTES:
 app.use("/api/auth",authRoute);
+app.use("/api/notes",noteRoute);
+app.use("/notes/:id", noteRoute);
 //1.test route:
 app.get("/",(req,res)=>{
     res.status(200).json({
@@ -19,5 +24,7 @@ app.get("/",(req,res)=>{
         message:"server running for allegory."
     })
 })
+
+
 
 export default app;

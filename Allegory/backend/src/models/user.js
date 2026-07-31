@@ -33,6 +33,6 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-const User = mongoose.model("user",userSchema)
-export default user;
+const User = mongoose.model("User",userSchema)
+export default User;
 //ragex: regular expression simple check whether a string is following the certain format or not 

@@ -1,0 +1,14 @@
+1xx: informational(rarely used)
+2xx: success
+3xx: redirection
+4xx: client error
+5xx: server error
+
+
+
+401 and 403: 
+401
+Not logged in / Invalid Token
+
+403
+Logged in but permission denied

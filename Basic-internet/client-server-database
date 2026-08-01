@@ -1,0 +1,65 @@
+this is the most important concept in full stack
+
+Client  →  Server  →  Database
+            ↑
+            ↓
+        Response
+
+
+
+- client: it is the application used by the user
+- ex: chrome, react app, mobile app etc
+- it send request to the server
+
+
+
+
+# server:
+- it receives the request, processess them and sends responses back to the client
+- ex: nodejs, python,express, spring boot
+- it contain business logic: means it does the actual work
+- it is the middle man between client and database
+
+
+#database: stores application data permanently
+- ex: mongodb, mysql, postgresql, oracle etc
+- it is the permanent storage of the data
+
+
+Real Example
+
+Instagram
+
+Client
+
+↓
+
+Click Login
+
+↓
+
+Server
+
+↓
+
+Checks username & password
+
+↓
+
+Database
+
+↓
+
+Returns user details
+
+↓
+
+Server
+
+↓
+
+Sends response
+
+↓
+
+Client shows Home Page

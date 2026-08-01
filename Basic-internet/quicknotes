@@ -1,0 +1,86 @@
+Internet = Network of Networks
+
+Client = Sends Request
+
+Server = Processes Request
+
+Database = Stores Data
+
+Frontend = UI
+
+Backend = Logic
+
+Full Stack = Frontend + Backend + Database
+
+DNS = Domain → IP Address
+
+
+IP Address = Device Address
+
+Port = Application Number
+
+URL = Complete Web Address
+
+HTTP = Communication Protocol
+
+HTTPS = Secure HTTP
+
+SSL/TLS = Encryption
+
+Port 80 = HTTP
+
+Port 443 = HTTPS
+
+Browser Flow:
+
+URL
+↓
+
+DNS
+↓
+
+Server
+↓
+
+Database
+↓
+
+Response
+↓
+
+Browser
+
+
+
+
+Request → Client → Server
+
+Response → Server → Client
+
+GET → Read
+
+POST → Create
+
+PUT → Replace Entire Data
+
+PATCH → Update Specific Fields
+
+DELETE → Remove Data
+
+200 → Success
+
+201 → Created
+
+400 → Bad Request
+
+401 → Unauthorized
+
+403 → Forbidden
+
+404 → Not Found
+
+500 → Internal Server Error
+
+REST API → Communication between Client & Server
+
+JSON → Data Exchange Format

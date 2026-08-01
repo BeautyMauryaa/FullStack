@@ -1,0 +1,40 @@
+- request:
+message sent byt the client to the server asking for some data or action
+
+Open Instagram
+
+↓
+
+Browser sends request
+
+↓
+
+"Give me my homepage."
+
+
+-response: 
+data sent back by the server after orocessing the request 
+
+Client
+
+↓
+
+Username & Password
+
+↓
+
+Server verifies
+
+↓
+
+Database checks user
+
+↓
+
+Response
+
+↓
+
+"Login Successful"
+
+

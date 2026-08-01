@@ -1,0 +1,43 @@
+https://www.example.com:8080/products?id=5#reviews
+
+breakdown: 
+Part	                    Meaning
+https	                   Protocol
+www.example.com	        Domain Name
+8080		                Port
+/products		             Path
+?id=5	              Query Parameter
+#reviews	               Fragment
+
+
+ex: https://amazon.in/mobile?brand=samsung&page=2
+
+Protocol
+
+↓
+
+HTTPS
+
+Domain
+
+↓
+
+amazon.in
+
+Path
+
+↓
+
+/mobile
+
+Query Parameters
+
+↓
+
+brand=samsung
+
+page=2
+
+
+url: uniform resource locator is the complete address used to locate a resource on the interner
+

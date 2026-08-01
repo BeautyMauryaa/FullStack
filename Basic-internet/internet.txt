@@ -1,0 +1,8 @@
+what is internet:
+- global network of interconnected  computer that communicate with each other using standard protocol(tcp/ip)
+- with out this out browser cann't communicate with our website
+- ex: www.youtube.com : computer send a request through the internet to youtube server
+
+what is tcp/ip:
+- tcp: transport layer protocol
+- ip: internet protocol

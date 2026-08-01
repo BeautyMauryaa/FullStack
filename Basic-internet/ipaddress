@@ -1,0 +1,42 @@
+# IP address:
+- internet protocol address 
+- unique address of a device on the internet
+- ex: 89.207.132.170 
+- without this computer can't communicate with other computer 
+
+
+# types of ip address:
+1. public ip: assigned by internet service provider (isp) assessible over the internet
+
+2. private ip: used inside a local network
+
+
+IPv4	               IPv6
+32-bit	               128-bit
+192.168.1.1  	       2001:db8::1
+Limited addresses	   Almost unlimited
+
+
+#port:
+logical endpoint that tells the os which application should receive the request 
+ex: Building = IP Address
+Apartment = Port
+
+
+Common Ports
+Port	Service
+80	    HTTP
+443  	HTTPS
+3000	React Development
+5000	Node.js
+8000	Backend APIs
+27017	MongoDB
+
+
+
+# ip vs port
+- ip address identifies the device while port identifies the application/service running on that device 
+ex: ip address: 89.207.132.170 port: 3000
+
+
+

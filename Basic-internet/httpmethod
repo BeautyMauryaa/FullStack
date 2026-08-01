@@ -1,0 +1,15 @@
+CRUD Mapping
+CRUD	HTTP Method
+Create	POST
+Read	GET
+Update	PUT / PATCH
+Delete	DELETE
+
+
+PUT
+Updates the entire resource.
+
+PATCH
+Updates only the required fields.
+
+

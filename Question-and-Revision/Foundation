@@ -1,0 +1,392 @@
+
+# 📘 Full Stack Foundation Interview Questions & Answers
+
+---
+
+# 1. How does a browser communicate with a server?
+
+### Answer
+
+When a user enters a URL in the browser:
+
+1. The browser checks the DNS to find the server's IP address.
+2. It sends an HTTP/HTTPS request to the server.
+3. The server processes the request.
+4. If required, the server fetches data from the database.
+5. The server sends an HTTP response.
+6. The browser renders the webpage.
+
+### Flow
+
+```text
+Browser
+
+↓
+
+DNS
+
+↓
+
+Server
+
+↓
+
+Database
+
+↓
+
+Server
+
+↓
+
+Browser
+```
+
+---
+
+# 2. What is HTTP?
+
+### Answer
+
+HTTP (HyperText Transfer Protocol) is a communication protocol used to transfer data between a client and a server. It follows a request-response model.
+
+Example:
+
+* Browser requests a webpage.
+* Server responds with HTML, CSS, JavaScript, or JSON.
+
+---
+
+# 3. Difference between HTTP and HTTPS?
+
+| HTTP          | HTTPS                   |
+| ------------- | ----------------------- |
+| Not Secure    | Secure                  |
+| No Encryption | Uses SSL/TLS Encryption |
+| Port 80       | Port 443                |
+| Less Secure   | More Secure             |
+
+### Answer
+
+HTTPS is the secure version of HTTP that encrypts communication between the client and server using SSL/TLS certificates.
+
+---
+
+# 4. What is REST API?
+
+### Answer
+
+REST (Representational State Transfer) is an architectural style for designing web APIs. It uses standard HTTP methods to perform CRUD operations.
+
+Common Methods
+
+* GET → Read
+* POST → Create
+* PUT → Update Entire Resource
+* PATCH → Update Specific Fields
+* DELETE → Remove Resource
+
+---
+
+# 5. What is JSON?
+
+### Answer
+
+JSON (JavaScript Object Notation) is a lightweight data format used to exchange information between the client and server.
+
+### Example
+
+```json
+{
+    "name":"Nova",
+    "age":21
+}
+```
+
+---
+
+# 6. Explain the Request-Response Cycle.
+
+### Answer
+
+The client sends an HTTP request to the server. The server processes the request, interacts with the database if necessary, and returns an HTTP response to the client.
+
+### Flow
+
+```text
+Client
+
+↓
+
+Request
+
+↓
+
+Server
+
+↓
+
+Database
+
+↓
+
+Response
+
+↓
+
+Client
+```
+
+---
+
+# 7. Difference between Authentication and Authorization?
+
+| Authentication    | Authorization                |
+| ----------------- | ---------------------------- |
+| Verifies identity | Verifies permissions         |
+| "Who are you?"    | "What can you access?"       |
+| Happens first     | Happens after authentication |
+
+### Example
+
+Logging into Gmail → Authentication
+
+Opening Admin Panel → Authorization
+
+---
+
+# 8. What is JWT?
+
+### Answer
+
+JWT (JSON Web Token) is a secure token used for authentication. After a successful login, the server generates a JWT and sends it to the client. The client sends the token with future requests to access protected resources.
+
+### JWT Structure
+
+```text
+Header
+
+↓
+
+Payload
+
+↓
+
+Signature
+```
+
+---
+
+# 9. Difference between Access Token and Refresh Token?
+
+| Access Token            | Refresh Token                       |
+| ----------------------- | ----------------------------------- |
+| Short-lived             | Long-lived                          |
+| Used to access APIs     | Used to generate a new access token |
+| Sent with every request | Used only when access token expires |
+
+---
+
+# 10. Difference between SQL and NoSQL?
+
+| SQL                 | NoSQL                   |
+| ------------------- | ----------------------- |
+| Relational Database | Non-Relational Database |
+| Tables              | Collections/Documents   |
+| Fixed Schema        | Flexible Schema         |
+| MySQL, PostgreSQL   | MongoDB                 |
+
+### Answer
+
+SQL databases store structured data with fixed schemas, while NoSQL databases store flexible, document-based data.
+
+---
+
+# 11. What is MVC Architecture?
+
+### Answer
+
+MVC (Model-View-Controller) is a software design pattern that separates an application into three parts.
+
+| Layer      | Responsibility   |
+| ---------- | ---------------- |
+| Model      | Handles Database |
+| View       | User Interface   |
+| Controller | Business Logic   |
+
+### Flow
+
+```text
+Client
+
+↓
+
+Route
+
+↓
+
+Controller
+
+↓
+
+Model
+
+↓
+
+Database
+
+↓
+
+Response
+```
+
+---
+
+# 12. What is Middleware?
+
+### Answer
+
+Middleware is a function that executes between the request and the response. It can modify requests, validate data, authenticate users, or handle errors.
+
+### Common Middleware
+
+* Express.json()
+* CORS
+* Authentication
+* Logger
+* Error Handler
+
+---
+
+# 13. What is CORS?
+
+### Answer
+
+CORS (Cross-Origin Resource Sharing) is a security mechanism that allows or blocks requests coming from different origins (domains, ports, or protocols).
+
+### Example
+
+Frontend
+
+```text
+http://localhost:3000
+```
+
+Backend
+
+```text
+http://localhost:5000
+```
+
+Without CORS, the browser blocks the request.
+
+---
+
+# 14. Why do we use `.env` files?
+
+### Answer
+
+`.env` files store sensitive information such as API keys, database URLs, and JWT secrets outside the source code.
+
+### Example
+
+```env
+PORT=5000
+JWT_SECRET=mysecret
+DATABASE_URL=mongodb://...
+```
+
+---
+
+# 15. Why should we never hardcode secrets?
+
+### Answer
+
+Hardcoding secrets exposes sensitive information in source code, making applications vulnerable if the code is shared or pushed to GitHub.
+
+Instead, store secrets in environment variables.
+
+---
+
+# 16. What is Password Hashing?
+
+### Answer
+
+Password hashing converts a password into an irreversible encrypted value before storing it in the database.
+
+Common library:
+
+* bcrypt
+
+Even if the database is leaked, original passwords cannot be easily recovered.
+
+---
+
+# 17. Why do we use bcrypt?
+
+### Answer
+
+bcrypt is a password hashing library that securely hashes passwords before storing them and compares hashed passwords during login.
+
+---
+
+# 18. What is RBAC (Role-Based Access Control)?
+
+### Answer
+
+RBAC restricts access based on user roles.
+
+Example:
+
+* Admin → Manage users
+* Teacher → Manage courses
+* Student → View courses
+
+---
+
+# 19. What is Postman?
+
+### Answer
+
+Postman is an API testing tool used to send HTTP requests, inspect responses, and test backend APIs without using the frontend.
+
+---
+
+# 20. What are HTTP Status Codes?
+
+| Code | Meaning               |
+| ---- | --------------------- |
+| 200  | OK                    |
+| 201  | Created               |
+| 400  | Bad Request           |
+| 401  | Unauthorized          |
+| 403  | Forbidden             |
+| 404  | Not Found             |
+| 500  | Internal Server Error |
+
+---
+
+
+# 🚀 Foundation Quick Revision
+
+* **HTTP** → Communication protocol between client and server.
+* **HTTPS** → Secure HTTP using SSL/TLS.
+* **REST API** → Standard way to build web services using HTTP.
+* **JSON** → Data exchange format.
+* **Authentication** → Verify identity.
+* **Authorization** → Verify permissions.
+* **JWT** → Token-based authentication.
+* **Access Token** → Short-lived authentication token.
+* **Refresh Token** → Generates new access tokens.
+* **SQL** → Relational database.
+* **NoSQL** → Document-based database.
+* **MVC** → Model → Controller → View architecture.
+* **Middleware** → Executes between request and response.
+* **CORS** → Controls cross-origin requests.
+* **`.env`** → Stores secrets securely.
+* **bcrypt** → Password hashing library.
+* **RBAC** → Access based on user roles.
+* **Postman** → API testing tool.
+* **Status Codes** → Indicate the result of an HTTP request.
+
+These topics align directly with the **Non-Negotiable Foundations** section of your Full Stack roadmap, which emphasizes JavaScript core, Internet & Auth concepts, Node.js/Express basics, authentication, and backend architecture before moving into the rest of the stack. 

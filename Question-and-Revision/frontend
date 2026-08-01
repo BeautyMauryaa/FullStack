@@ -1,0 +1,830 @@
+Yes. Based on your roadmap **Part 3 – React Core + Full API Integration** and current React interview patterns, here are the **most important React interview questions** you should prepare. These cover fundamentals, hooks, rendering, routing, API integration, and performance—the areas most interviewers focus on. ([StackInterview][1])
+
+---
+
+# 📘 React Interview Questions & Answers
+
+---
+
+# 1. What is React?
+
+### Answer
+
+React is an **open-source JavaScript library** developed by Meta for building fast, reusable, and interactive user interfaces using reusable components.
+
+---
+
+# 2. Why React?
+
+### Answer
+
+React is popular because it:
+
+* Uses reusable components
+* Improves performance using Virtual DOM
+* Supports one-way data flow
+* Easy state management using Hooks
+* Large ecosystem and community
+
+---
+
+# 3. What are the Features of React?
+
+### Answer
+
+* Component-Based Architecture
+* Virtual DOM
+* JSX
+* One-Way Data Binding
+* Reusable Components
+* Hooks
+* Fast Rendering
+
+---
+
+# 4. React vs Angular?
+
+| React         | Angular             |
+| ------------- | ------------------- |
+| Library       | Framework           |
+| Uses JSX      | Uses HTML Templates |
+| Virtual DOM   | Real DOM            |
+| Easy to Learn | More Complex        |
+
+---
+
+# 5. What is JSX?
+
+### Answer
+
+JSX (JavaScript XML) is a syntax extension that allows writing HTML-like code inside JavaScript. It is converted into JavaScript using **Babel** before execution.
+
+```jsx
+const element = <h1>Hello React</h1>;
+```
+
+---
+
+# 6. JSX vs HTML?
+
+| JSX                            | HTML          |
+| ------------------------------ | ------------- |
+| Uses `className`               | Uses `class`  |
+| Uses `htmlFor`                 | Uses `for`    |
+| JavaScript Expressions Allowed | No JavaScript |
+
+---
+
+# 7. What is Babel?
+
+### Answer
+
+Babel is a JavaScript compiler that converts JSX and modern JavaScript (ES6+) into browser-compatible JavaScript.
+
+---
+
+# 8. What is a Component?
+
+### Answer
+
+A Component is a reusable piece of UI that returns JSX.
+
+Types:
+
+* Functional Component
+* Class Component
+
+---
+
+# 9. Functional vs Class Component?
+
+| Functional  | Class                  |
+| ----------- | ---------------------- |
+| Uses Hooks  | Uses Lifecycle Methods |
+| Less Code   | More Code              |
+| Recommended | Legacy                 |
+
+---
+
+# 10. What is Virtual DOM?
+
+### Answer
+
+Virtual DOM is a lightweight copy of the Real DOM. When state changes, React creates a new Virtual DOM, compares it with the previous version (Reconciliation), and updates only the changed parts of the Real DOM. ([Resumly][2])
+
+---
+
+# 11. Real DOM vs Virtual DOM?
+
+| Real DOM            | Virtual DOM                |
+| ------------------- | -------------------------- |
+| Slower              | Faster                     |
+| Updates entire DOM  | Updates only changed nodes |
+| Direct manipulation | React handles updates      |
+
+---
+
+# 12. What is Reconciliation?
+
+### Answer
+
+Reconciliation is React's process of comparing the old Virtual DOM with the new Virtual DOM and updating only the changed elements in the Real DOM. ([Resumly][2])
+
+---
+
+# 13. What is Diffing Algorithm?
+
+### Answer
+
+The Diffing Algorithm compares the old Virtual DOM with the new Virtual DOM and finds the minimum number of changes required to update the UI.
+
+---
+
+# 14. Why is React Fast?
+
+### Answer
+
+React is fast because it:
+
+* Uses Virtual DOM
+* Uses Diffing Algorithm
+* Updates only changed elements
+* Uses efficient rendering techniques
+
+---
+
+# 15. What are Props?
+
+### Answer
+
+Props (Properties) are read-only data passed from a parent component to a child component.
+
+---
+
+# 16. What is State?
+
+### Answer
+
+State stores data that belongs to a component. When state changes, React re-renders the component.
+
+---
+
+# 17. Props vs State?
+
+| Props          | State                |
+| -------------- | -------------------- |
+| Parent → Child | Internal Data        |
+| Read-only      | Can Change           |
+| External       | Managed by Component |
+
+---
+
+# 18. What is One-Way Data Binding?
+
+### Answer
+
+Data flows only from the parent component to child components, making applications easier to debug and maintain.
+
+---
+
+# 19. What is Lifting State Up?
+
+### Answer
+
+Lifting State Up means moving state from child components to their common parent so multiple components can share the same data.
+
+---
+
+# 20. What is Prop Drilling?
+
+### Answer
+
+Prop Drilling is passing props through multiple intermediate components to reach a deeply nested component. Context API helps avoid this.
+
+---
+
+# 21. What are React Hooks?
+
+### Answer
+
+Hooks are special functions that allow functional components to use React features such as state and lifecycle methods.
+
+Common Hooks:
+
+* useState
+* useEffect
+* useRef
+* useContext
+* useMemo
+* useCallback
+
+---
+
+# 22. What are the Rules of Hooks?
+
+### Answer
+
+* Call Hooks only at the top level.
+* Call Hooks only inside React functional components or custom Hooks. This ensures Hooks are called in the same order on every render. ([Resumly][2])
+
+---
+
+# 23. What is useState()?
+
+### Answer
+
+`useState()` is used to create and manage state in functional components.
+
+---
+
+# 24. What is useEffect()?
+
+### Answer
+
+`useEffect()` performs side effects like API calls, timers, subscriptions, and event listeners.
+
+---
+
+# 25. What is useRef()?
+
+### Answer
+
+`useRef()` is used to access DOM elements directly or store mutable values without causing a re-render.
+
+---
+
+# 26. What is useContext()?
+
+### Answer
+
+`useContext()` accesses data from React Context without passing props manually through every level.
+
+---
+
+# 27. What is useMemo()?
+
+### Answer
+
+`useMemo()` memoizes a computed value and recalculates it only when its dependencies change.
+
+---
+
+# 28. What is useCallback()?
+
+### Answer
+
+`useCallback()` memoizes a function so that it isn't recreated on every render.
+
+---
+
+# 29. Difference between useMemo() and useCallback()?
+
+| useMemo        | useCallback       |
+| -------------- | ----------------- |
+| Memoizes Value | Memoizes Function |
+| Returns Value  | Returns Function  |
+
+---
+
+# 30. What is React.memo()?
+
+### Answer
+
+`React.memo()` prevents unnecessary re-rendering of a component if its props haven't changed.
+
+---
+
+# 31. What causes a React Component to Re-render?
+
+### Answer
+
+A component re-renders when:
+
+* State changes
+* Props change
+* Context changes
+* Parent component re-renders
+
+---
+
+# 32. What are Keys in React?
+
+### Answer
+
+Keys are unique identifiers used when rendering lists. They help React identify which items have changed.
+
+---
+
+# 33. Why shouldn't we use Array Index as a Key?
+
+### Answer
+
+Using the array index as a key can cause incorrect UI updates when items are inserted, removed, or reordered. A stable unique ID is preferred.
+
+---
+
+# 34. What is Conditional Rendering?
+
+### Answer
+
+Conditional Rendering displays different UI based on a condition.
+
+---
+
+# 35. Controlled vs Uncontrolled Components?
+
+| Controlled                | Uncontrolled      |
+| ------------------------- | ----------------- |
+| Controlled by React State | Controlled by DOM |
+| Uses useState             | Uses useRef       |
+
+---
+
+# 36. What are Custom Hooks?
+
+### Answer
+
+Custom Hooks are reusable functions that encapsulate common logic using React Hooks.
+
+Example:
+
+```jsx
+useFetch()
+useAuth()
+```
+
+---
+
+# 37. What is React Router?
+
+### Answer
+
+React Router enables client-side navigation between pages without reloading the browser.
+
+---
+
+# 38. What is a Protected Route?
+
+### Answer
+
+A Protected Route allows access only to authenticated users. Unauthenticated users are typically redirected to the login page.
+
+---
+
+# 39. Fetch vs Axios?
+
+| Fetch                | Axios                  |
+| -------------------- | ---------------------- |
+| Built into Browser   | External Library       |
+| Manual JSON Parsing  | Automatic JSON Parsing |
+| Basic Error Handling | Better Error Handling  |
+
+---
+
+# 40. How do you handle Loading and Error States?
+
+### Answer
+
+While calling an API:
+
+* Show a loading indicator while the request is in progress.
+* Display an error message if the request fails.
+* Render the data after a successful response.
+
+---
+
+# 41. Where should JWT be stored?
+
+### Answer
+
+For production applications, **HttpOnly secure cookies** are generally preferred because they reduce exposure to JavaScript-based attacks. Some applications use localStorage, but it is more exposed to XSS risks and requires careful security practices. ([techinterview.org][3])
+
+---
+
+# 42. What is Lazy Loading?
+
+### Answer
+
+Lazy Loading loads components only when they are needed, reducing the initial bundle size.
+
+---
+
+# 43. What is Code Splitting?
+
+### Answer
+
+Code Splitting divides the application into smaller bundles so users download only the code needed for the current page.
+
+---
+
+# 44. What is Suspense?
+
+### Answer
+
+`Suspense` displays fallback content while waiting for lazy-loaded components or asynchronous resources.
+
+---
+
+# 45. What is Error Boundary?
+
+### Answer
+
+An Error Boundary catches rendering errors in child components and displays a fallback UI instead of crashing the entire application. It does not catch errors in event handlers or asynchronous code.
+
+---
+
+# 46. How do you Optimize React Performance?
+
+### Answer
+
+Common optimization techniques include:
+
+* React.memo()
+* useMemo()
+* useCallback()
+* Lazy Loading
+* Code Splitting
+* Proper use of Keys
+* Debouncing
+* Throttling
+
+([OnJob.io][4])
+
+---
+
+# 47. What is Feature-Based Folder Structure?
+
+### Answer
+
+Feature-based folder structure groups files by feature rather than file type.
+
+```
+src/
+ ├── features/
+ │    ├── auth/
+ │    ├── dashboard/
+ │    └── users/
+ ├── components/
+ ├── hooks/
+ ├── services/
+ └── utils/
+```
+
+---
+
+
+## 📌 React Basics
+
+* **React** → JavaScript library for building UI.
+* **JSX** → HTML-like syntax inside JavaScript.
+* **Babel** → Converts JSX into JavaScript.
+* **Component** → Reusable UI block.
+* **SPA** → Loads one HTML page and updates content dynamically.
+* **One-Way Data Binding** → Data flows Parent → Child.
+
+---
+
+## 📌 Virtual DOM
+
+* **DOM** → Browser representation of HTML.
+* **Virtual DOM** → Lightweight copy of Real DOM.
+* **Reconciliation** → Compares old and new Virtual DOM.
+* **Diffing Algorithm** → Finds changed nodes.
+* **React updates only changed elements**, making rendering efficient. ([techinterview.org][2])
+
+---
+
+## 📌 Components
+
+* Functional Component ✅ (Preferred)
+* Class Component (Legacy)
+
+---
+
+## 📌 Props & State
+
+### Props
+
+* Read-only
+* Parent → Child
+
+### State
+
+* Mutable
+* Managed inside Component
+* Changing state triggers a re-render.
+
+---
+
+## 📌 Props vs State
+
+| Props            | State                |
+| ---------------- | -------------------- |
+| Read-only        | Mutable              |
+| Parent Data      | Internal Data        |
+| Passed by Parent | Managed by Component |
+
+---
+
+## 📌 Hooks
+
+### useState()
+
+* Stores component state.
+
+### useEffect()
+
+* API Calls
+* Timers
+* Event Listeners
+* Cleanup
+
+### useRef()
+
+* Access DOM
+* Store mutable values
+* No re-render
+
+### useContext()
+
+* Share global data
+* Avoid Prop Drilling
+
+### useMemo()
+
+* Memoizes **values**
+* Prevents expensive recalculations. ([React][3])
+
+### useCallback()
+
+* Memoizes **functions**
+* Prevents unnecessary function recreation. ([React][4])
+
+### React.memo()
+
+* Prevents unnecessary component re-renders if props haven't changed. ([React][5])
+
+---
+
+## 📌 useMemo vs useCallback
+
+| useMemo        | useCallback       |
+| -------------- | ----------------- |
+| Memoizes Value | Memoizes Function |
+| Returns Value  | Returns Function  |
+
+---
+
+## 📌 Rendering
+
+* Conditional Rendering
+* List Rendering
+* Keys
+* Fragments
+
+---
+
+## 📌 Keys
+
+* Unique identifier
+* Helps React update lists efficiently
+* **Don't use array index as key** if list order can change. ([Greenroom][1])
+
+---
+
+## 📌 State Sharing
+
+### Lifting State Up
+
+Move state to a common parent.
+
+### Prop Drilling
+
+Passing props through many intermediate components.
+
+### Context API
+
+Removes Prop Drilling.
+
+---
+
+## 📌 Forms
+
+### Controlled Component
+
+* React controls input.
+* Uses `useState`.
+
+### Uncontrolled Component
+
+* DOM controls input.
+* Uses `useRef`.
+
+---
+
+## 📌 Routing
+
+* React Router
+* Dynamic Routes
+* Nested Routes
+* Protected Routes
+
+---
+
+## 📌 API Integration
+
+### Fetch
+
+* Built into browser
+
+### Axios
+
+* External library
+* Better error handling
+* Automatic JSON parsing
+
+---
+
+## 📌 Loading & Error
+
+Always maintain
+
+* Loading State
+* Success State
+* Error State
+
+---
+
+## 📌 JWT Authentication
+
+Flow
+
+```text
+Login
+
+↓
+
+JWT
+
+↓
+
+Store Token
+
+↓
+
+Protected Route
+
+↓
+
+Logout
+```
+
+For production, HttpOnly cookies are generally preferred for storing authentication tokens because they reduce exposure to XSS attacks. ([techinterview.org][2])
+
+---
+
+## 📌 Performance Optimization
+
+* React.memo()
+* useMemo()
+* useCallback()
+* Lazy Loading
+* Code Splitting
+* Suspense
+* Debouncing
+* Throttling
+
+Use these **only when profiling shows a real performance issue**, not everywhere by default. ([OnJob.io][6])
+
+---
+
+## 📌 Lazy Loading
+
+Loads components only when required.
+
+```jsx
+const Home = React.lazy(() => import("./Home"));
+```
+
+---
+
+## 📌 Code Splitting
+
+Splits application into smaller bundles.
+
+---
+
+## 📌 Suspense
+
+Shows fallback UI while lazy components load.
+
+```jsx
+<Suspense fallback={<Loader/>}>
+    <Home/>
+</Suspense>
+```
+
+---
+
+## 📌 Error Boundary
+
+Catches rendering errors in child components and displays a fallback UI instead of crashing the app.
+
+---
+
+## 📌 Custom Hooks
+
+Reusable Hook Logic
+
+Examples
+
+```text
+useFetch()
+
+useAuth()
+
+useTheme()
+```
+
+---
+
+## 📌 Folder Structure
+
+```text
+src/
+
+components/
+
+features/
+
+hooks/
+
+services/
+
+utils/
+
+pages/
+
+assets/
+```
+
+---
+
+# ⭐ 25 Most Asked React Interview Questions
+
+1. What is React?
+2. Why React?
+3. JSX vs HTML?
+4. What is Babel?
+5. What is Virtual DOM?
+6. Real DOM vs Virtual DOM?
+7. What is Reconciliation?
+8. What is Diffing Algorithm?
+9. Props vs State?
+10. What are Hooks?
+11. Rules of Hooks?
+12. useState()?
+13. useEffect()?
+14. useRef()?
+15. useContext()?
+16. useMemo() vs useCallback()?
+17. React.memo()?
+18. Controlled vs Uncontrolled Components?
+19. Context API?
+20. React Router?
+21. Fetch vs Axios?
+22. Lazy Loading?
+23. Code Splitting?
+24. Error Boundary?
+25. How do you optimize React performance?
+
+---
+
+# 🎯 30-Second React Revision
+
+* React → UI Library
+* JSX → HTML in JS
+* Babel → JSX Compiler
+* Component → Reusable UI
+* Virtual DOM → Faster updates
+* Reconciliation → Compare Virtual DOMs
+* Props → Parent Data
+* State → Internal Data
+* useState → State
+* useEffect → Side Effects
+* useRef → DOM Access
+* useContext → Global State
+* useMemo → Cache Values
+* useCallback → Cache Functions
+* React.memo → Prevent Re-renders
+* Keys → Unique List IDs
+* Context API → Avoid Prop Drilling
+* React Router → Navigation
+* Fetch/Axios → API Calls
+* Protected Route → Auth-based Access
+* Lazy Loading → Load on Demand
+* Code Splitting → Smaller Bundles
+* Suspense → Loading Fallback
+* Error Boundary → Catch Render Errors
+* Custom Hooks → Reusable Logic
+* Performance → Memoization + Lazy Loading + Code Splitting

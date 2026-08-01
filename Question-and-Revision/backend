@@ -1,0 +1,719 @@
+
+
+# 📘 Backend Engineering (Node.js + Express + Auth)
+
+## ⭐ Top Backend Interview Questions & Answers
+
+---
+
+# 1. What is Express.js?
+
+### Answer
+
+Express.js is a fast, lightweight, and minimal web framework built on top of Node.js. It simplifies backend development by providing routing, middleware support, request handling, and API creation.
+
+### Example
+
+```javascript
+const express = require("express");
+const app = express();
+```
+
+---
+
+# 2. Why do we use Express instead of Node's HTTP module?
+
+| Node HTTP            | Express                   |
+| -------------------- | ------------------------- |
+| More code            | Less code                 |
+| Manual routing       | Built-in routing          |
+| No middleware        | Middleware support        |
+| Harder to build APIs | Easy REST API development |
+
+---
+
+# 3. What is Middleware?
+
+### Answer
+
+Middleware is a function that executes between the client's request and the server's response. It can modify the request/response, perform authentication, logging, validation, or end the request.
+
+### Flow
+
+```text
+Request
+
+↓
+
+Middleware
+
+↓
+
+Route Handler
+
+↓
+
+Response
+```
+
+---
+
+# 4. Types of Middleware
+
+### Answer
+
+* Application Middleware
+* Router Middleware
+* Built-in Middleware (`express.json()`)
+* Third-party Middleware (`cors`, `helmet`, `morgan`, `multer`)
+* Error-handling Middleware
+
+---
+
+# 5. What is Routing?
+
+### Answer
+
+Routing determines how the server responds to different URLs and HTTP methods.
+
+```javascript
+app.get("/users", (req, res) => {
+    res.send("Users");
+});
+```
+
+---
+
+# 6. Difference between `app.use()` and `app.get()`?
+
+| app.use()                  | app.get()                       |
+| -------------------------- | ------------------------------- |
+| Registers middleware       | Handles GET requests            |
+| Works for all HTTP methods | GET only                        |
+| Runs before routes         | Executes when GET route matches |
+
+---
+
+# 7. What is `req` and `res`?
+
+### Answer
+
+* `req` (Request Object) contains data sent by the client.
+* `res` (Response Object) sends data back to the client.
+
+```javascript
+app.get("/", (req, res) => {
+    res.send("Hello");
+});
+```
+
+---
+
+# 8. Difference between Route Params and Query Params?
+
+### Route Params
+
+```text
+/users/10
+```
+
+```javascript
+req.params.id
+```
+
+### Query Params
+
+```text
+/users?page=2
+```
+
+```javascript
+req.query.page
+```
+
+---
+
+# 9. Difference between `req.params`, `req.query`, and `req.body`?
+
+| Property   | Purpose                   |
+| ---------- | ------------------------- |
+| req.params | URL parameters            |
+| req.query  | Query string              |
+| req.body   | Data sent in request body |
+
+---
+
+# 10. What is `express.json()`?
+
+### Answer
+
+`express.json()` is built-in middleware that parses incoming JSON request bodies and makes them available through `req.body`.
+
+---
+
+# 11. What is CORS?
+
+### Answer
+
+CORS (Cross-Origin Resource Sharing) is a browser security feature that controls whether a frontend from one origin can access a backend hosted on another origin.
+
+Without enabling CORS, browsers block cross-origin requests.
+
+---
+
+# 12. How do you fix a CORS error?
+
+### Answer
+
+Install and use the `cors` middleware.
+
+```javascript
+app.use(cors());
+```
+
+---
+
+# 13. What is MVC Architecture?
+
+### Answer
+
+MVC separates application logic into:
+
+| Layer      | Responsibility |
+| ---------- | -------------- |
+| Model      | Database       |
+| Controller | Business Logic |
+| Route      | API Endpoints  |
+
+---
+
+# 14. What is Centralized Error Handling?
+
+### Answer
+
+Instead of writing `try...catch` everywhere, Express uses one error-handling middleware to handle application errors consistently.
+
+---
+
+# 15. Why do we use `try...catch` with Async/Await?
+
+### Answer
+
+`try...catch` prevents application crashes by catching errors thrown during asynchronous operations such as database queries and API requests.
+
+---
+
+# 16. What is bcrypt?
+
+### Answer
+
+bcrypt is a library used to hash passwords before storing them in the database. During login, it compares the entered password with the hashed password.
+
+---
+
+# 17. Why do we hash passwords?
+
+### Answer
+
+Passwords should never be stored in plain text. Hashing protects user credentials even if the database is compromised.
+
+---
+
+# 18. What is JWT?
+
+### Answer
+
+JWT (JSON Web Token) is a token-based authentication mechanism. After successful login, the server generates a signed token, and the client sends it with future requests to access protected routes.
+
+---
+
+# 19. JWT Structure
+
+```text
+Header
+
+↓
+
+Payload
+
+↓
+
+Signature
+```
+
+---
+
+# 20. Access Token vs Refresh Token?
+
+| Access Token | Refresh Token             |
+| ------------ | ------------------------- |
+| Short-lived  | Long-lived                |
+| Access APIs  | Generate new Access Token |
+
+---
+
+# 21. What is Authentication?
+
+### Answer
+
+Authentication verifies the identity of a user.
+
+Example:
+Login using email and password.
+
+---
+
+# 22. What is Authorization?
+
+### Answer
+
+Authorization determines what an authenticated user is allowed to access.
+
+Example:
+Only Admin can delete users.
+
+---
+
+# 23. What is RBAC?
+
+### Answer
+
+RBAC (Role-Based Access Control) restricts resources based on user roles such as Admin, Teacher, or Student.
+
+---
+
+# 24. What is Multer?
+
+### Answer
+
+Multer is Express middleware used for handling `multipart/form-data`, mainly for uploading files such as images and PDFs.
+
+---
+
+# 25. Why do we use Helmet?
+
+### Answer
+
+Helmet secures Express applications by setting HTTP security headers, helping protect against common web vulnerabilities.
+
+---
+
+# 26. What is Rate Limiting?
+
+### Answer
+
+Rate Limiting restricts how many requests a client can make in a given time, helping prevent brute-force attacks and API abuse.
+
+---
+
+# 27. Why do we use Postman?
+
+### Answer
+
+Postman is an API testing tool used to send HTTP requests, inspect responses, and verify backend APIs without needing a frontend.
+
+---
+
+# 28. What is `.env`?
+
+### Answer
+
+A `.env` file stores sensitive configuration values such as API keys, database URLs, JWT secrets, and ports outside the source code.
+
+---
+
+# 29. Why should secrets never be hardcoded?
+
+### Answer
+
+Hardcoding secrets exposes sensitive information if the code is shared or pushed to GitHub. Environment variables keep secrets secure.
+
+---
+
+# 30. Explain the complete Login Flow.
+
+### Answer
+
+```text
+Client
+
+↓
+
+POST /login
+
+↓
+
+Server
+
+↓
+
+Check Email
+
+↓
+
+Compare Password (bcrypt)
+
+↓
+
+Generate JWT
+
+↓
+
+Send Token
+
+↓
+
+Client Stores Token
+
+↓
+
+Token Sent with Future Requests
+
+↓
+
+Protected Route Access
+```
+
+---
+Perfect. These are **frequently asked Express/Backend interview questions**. You can add them directly to your notebook.
+
+---
+
+# 1. Difference between `res.send()`, `res.json()`, and `res.status()`?
+
+### Answer
+
+These methods are used to send responses from the server to the client.
+
+| Method         | Purpose                                                                     |
+| -------------- | --------------------------------------------------------------------------- |
+| `res.send()`   | Sends any type of response (String, Object, HTML, Buffer).                  |
+| `res.json()`   | Sends a JSON response. Automatically sets `Content-Type: application/json`. |
+| `res.status()` | Sets the HTTP status code before sending the response.                      |
+
+### Example
+
+```javascript
+res.send("User Created");
+
+res.json({ message: "Success" });
+
+res.status(404).json({ message: "User Not Found" });
+```
+
+**Interview Tip:** In REST APIs, `res.status().json()` is the most common pattern because it returns both the correct status code and JSON data. ([GeeksforGeeks][1])
+
+---
+
+# 2. Cookies vs Sessions vs JWT
+
+### Answer
+
+All three are used for authentication but work differently.
+
+| Cookies                          | Sessions                    | JWT                            |
+| -------------------------------- | --------------------------- | ------------------------------ |
+| Stored in Browser                | Session stored on Server    | Token stored on Client         |
+| Small Data                       | Server keeps user data      | Self-contained token           |
+| Can store JWT                    | Requires Session Store      | Stateless Authentication       |
+| Automatically sent with requests | Session ID stored in Cookie | Sent in `Authorization` header |
+
+### Interview Tip
+
+* **Cookies** → Store small data.
+* **Sessions** → Server-side authentication.
+* **JWT** → Stateless authentication for REST APIs.
+
+---
+
+# 3. What is `next()` in Express?
+
+### Answer
+
+`next()` is a function that passes control from the current middleware to the next middleware or route handler.
+
+If `next()` is not called and no response is sent, the request remains pending and eventually times out.
+
+### Example
+
+```javascript
+app.use((req, res, next) => {
+    console.log("Middleware");
+    next();
+});
+```
+
+If an error occurs:
+
+```javascript
+next(err);
+```
+
+Express skips normal middleware and executes the error-handling middleware. ([Express.js][2])
+
+---
+
+# 4. What is the Request-Response Lifecycle?
+
+### Answer
+
+The Request-Response Lifecycle is the complete journey of an HTTP request from the client to the server and back.
+
+### Flow
+
+```text
+Client
+
+↓
+
+Request
+
+↓
+
+Middleware
+
+↓
+
+Route
+
+↓
+
+Controller
+
+↓
+
+Service (Optional)
+
+↓
+
+Database
+
+↓
+
+Controller
+
+↓
+
+Response
+
+↓
+
+Client
+```
+
+Every request follows this pipeline before a response is returned. ([StackLesson.com][3])
+
+---
+
+# 5. Why is Middleware Order Important?
+
+### Answer
+
+Express executes middleware **in the order they are registered**.
+
+For example:
+
+```javascript
+app.use(express.json());
+
+app.use(authMiddleware);
+
+app.use("/api", router);
+```
+
+If `express.json()` is placed **after** the routes, `req.body` will not be parsed. Likewise, authentication middleware should run before protected routes.
+
+**Interview Tip:** Middleware order directly affects application behavior and security. ([Express.js][4])
+
+---
+
+# 6. How do you validate request data?
+
+### Answer
+
+Request data should be validated before processing to ensure it is complete, correctly formatted, and safe.
+
+Common validation libraries:
+
+* Joi
+* Zod
+* express-validator
+
+Example:
+
+```javascript
+if (!req.body.email) {
+    return res.status(400).json({
+        message: "Email is required"
+    });
+}
+```
+
+Validation helps prevent invalid data and improves application security.
+
+---
+
+# 7. How do you handle 404 errors?
+
+### Answer
+
+A 404 error is returned when no route matches the requested URL.
+
+### Example
+
+```javascript
+app.use((req, res) => {
+    res.status(404).json({
+        message: "Route Not Found"
+    });
+});
+```
+
+This middleware should be placed **after all routes** so it only runs when no route has handled the request. ([StackLesson.com][3])
+
+---
+
+# 8. What is Logging? (Morgan)
+
+### Answer
+
+Logging records details about incoming HTTP requests such as:
+
+* HTTP Method
+* URL
+* Status Code
+* Response Time
+
+Morgan is a popular Express middleware used for request logging.
+
+### Example
+
+```javascript
+const morgan = require("morgan");
+
+app.use(morgan("dev"));
+```
+
+Logging helps with debugging, monitoring, and troubleshooting production applications.
+
+---
+
+# 9. How do you secure an Express API?
+
+### Answer
+
+Common security practices include:
+
+* Hash passwords using **bcrypt**
+* Authenticate users with **JWT**
+* Store secrets in **.env**
+* Use **Helmet** for security headers
+* Enable **CORS** correctly
+* Apply **Rate Limiting**
+* Validate and sanitize user input
+* Use HTTPS in production
+
+These practices help protect against common attacks such as brute-force attempts, XSS, and data exposure.
+
+---
+
+# 10. How do you organize a scalable Express project?
+
+### Answer
+
+A scalable Express project separates responsibilities into different folders.
+
+### Folder Structure
+
+```text
+project/
+
+├── controllers/
+├── routes/
+├── models/
+├── middleware/
+├── services/
+├── utils/
+├── config/
+├── validators/
+├── uploads/
+├── app.js
+└── server.js
+```
+
+### Flow
+
+```text
+Client
+
+↓
+
+Routes
+
+↓
+
+Middleware
+
+↓
+
+Controller
+
+↓
+
+Service
+
+↓
+
+Model
+
+↓
+
+Database
+```
+
+This structure improves readability, maintainability, and scalability.
+
+---
+
+# ⭐ Quick Revision
+
+* **`res.send()`** → Sends any response.
+* **`res.json()`** → Sends JSON response.
+* **`res.status()`** → Sets HTTP status code.
+* **Cookies** → Browser storage.
+* **Sessions** → Server-side authentication.
+* **JWT** → Stateless authentication.
+* **`next()`** → Passes control to the next middleware.
+* **Request Lifecycle** → Client → Middleware → Route → Controller → Database → Response.
+* **Middleware Order** → Executes in registration order.
+* **Validation** → Check input before processing.
+* **404 Handler** → Last middleware for unmatched routes.
+* **Morgan** → HTTP request logging.
+* **Express Security** → bcrypt + JWT + Helmet + CORS + Rate Limiting + Validation.
+* **Scalable Structure** → Routes → Middleware → Controller → Service → Model.
+"
+
+---
+
+# 🚀 Backend Quick Revision
+
+* **Express** → Backend framework for Node.js.
+* **Middleware** → Executes between request and response.
+* **Routing** → Maps URLs to handlers.
+* **req** → Client request object.
+* **res** → Server response object.
+* **`express.json()`** → Parses JSON request bodies.
+* **CORS** → Allows controlled cross-origin requests.
+* **MVC** → Route → Controller → Model architecture.
+* **bcrypt** → Password hashing.
+* **JWT** → Token-based authentication.
+* **Authentication** → Verify identity.
+* **Authorization** → Verify permissions.
+* **RBAC** → Role-based access control.
+* **Multer** → File uploads.
+* **Helmet** → Adds security headers.
+* **Rate Limiting** → Prevents request abuse.
+* **Postman** → API testing.
+* **`.env`** → Stores sensitive configuration.
+* **`next()`** → Passes control to the next middleware.
+* **Request Lifecycle** → Client → Middleware → Route → Controller → Database → Response.

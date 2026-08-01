@@ -1,0 +1,361 @@
+# 📘 Part 4 – AI Awareness + Deployment + Docker
+
+---
+
+# AI Awareness
+
+## 1. What is an API Key?
+
+### Answer
+
+An **API Key** is a unique secret used to authenticate an application when it accesses an API. It identifies your project and allows the service to track and authorize requests. Treat it like a password. ([Google AI for Developers][1])
+
+---
+
+## 2. Why should an API Key never be stored in the frontend?
+
+### Answer
+
+Frontend code is visible to users, so an API key placed there can be copied and misused. In production, API keys should be stored on the backend or in secure environment variables and never exposed to the client. ([Google AI for Developers][1])
+
+---
+
+## 3. What is the Gemini API?
+
+### Answer
+
+The Gemini API allows applications to use Google's AI models for tasks such as text generation, summarization, code generation, image understanding, and chat.
+
+---
+
+## 4. Explain the AI Request Flow.
+
+### Answer
+
+```text
+User
+
+↓
+
+Frontend
+
+↓
+
+Backend
+
+↓
+
+Gemini API
+
+↓
+
+Backend
+
+↓
+
+Frontend
+
+↓
+
+User
+```
+
+The frontend sends the request to the backend, the backend securely calls the AI API using the API key, receives the response, and sends it back to the frontend.
+
+---
+
+## 5. Why should AI API calls be made from the backend?
+
+### Answer
+
+Making AI API calls from the backend protects API keys, allows request validation, supports rate limiting, logging, and keeps sensitive logic secure. ([Google AI for Developers][1])
+
+---
+
+## 6. What is Prompt Engineering?
+
+### Answer
+
+Prompt Engineering is the process of writing clear and specific instructions to get accurate and useful responses from an AI model.
+
+Example:
+
+❌ Bad Prompt
+
+> Explain React.
+
+✅ Good Prompt
+
+> Explain React Hooks in simple language with examples suitable for beginners.
+
+---
+
+## 7. How do you handle AI API errors?
+
+### Answer
+
+Always handle errors such as:
+
+- Invalid API Key
+- Rate Limit Exceeded
+- Network Failure
+- Server Error
+
+Return user-friendly messages instead of exposing raw errors.
+
+---
+
+## 8. What is a Fallback?
+
+### Answer
+
+A fallback is an alternative response shown when the AI service is unavailable or fails.
+
+Example:
+
+> "AI service is temporarily unavailable. Please try again later."
+
+---
+
+# Deployment
+
+---
+
+## 9. What is Deployment?
+
+### Answer
+
+Deployment is the process of making an application available on the internet so users can access it.
+
+---
+
+## 10. Why do we deploy applications?
+
+### Answer
+
+Deployment allows users to access the application online, enables testing in a production environment, and makes the app available for real-world use.
+
+---
+
+## 11. What is Vercel?
+
+### Answer
+
+Vercel is a cloud platform commonly used to deploy React, Next.js, and frontend applications. It provides Git integration, automatic deployments, preview URLs, and global hosting. ([Vercel][2])
+
+---
+
+## 12. What is Render?
+
+### Answer
+
+Render is a cloud platform used to deploy backend services, APIs, databases, background workers, and Docker applications. ([Vercel][2])
+
+---
+
+## 13. Why use MongoDB Atlas?
+
+### Answer
+
+MongoDB Atlas is MongoDB's managed cloud database service. It provides automatic backups, scaling, monitoring, and secure remote access.
+
+---
+
+## 14. What are Environment Variables?
+
+### Answer
+
+Environment Variables store sensitive configuration values such as:
+
+- API Keys
+- JWT Secret
+- Database URL
+- Port Number
+
+These values should not be hardcoded into the application. ([Google AI for Developers][1])
+
+Example
+
+```env
+PORT=5000
+JWT_SECRET=secret
+MONGO_URI=...
+```
+
+---
+
+## 15. What is Production?
+
+### Answer
+
+Production is the live environment where real users access the application.
+
+---
+
+## 16. Why do CORS issues occur after deployment?
+
+### Answer
+
+After deployment, the frontend and backend usually run on different domains. The backend must allow requests from the frontend's production URL using proper CORS configuration.
+
+---
+
+# Docker
+
+---
+
+## 17. What is Docker?
+
+### Answer
+
+Docker is a containerization platform that packages an application along with its dependencies into a container so it runs consistently across different environments. ([Vercel][3])
+
+---
+
+## 18. Why do we use Docker?
+
+### Answer
+
+Docker provides:
+
+- Same environment everywhere
+- Easy deployment
+- Dependency isolation
+- Faster setup
+- Better scalability
+
+---
+
+## 19. What is a Container?
+
+### Answer
+
+A Container is a lightweight, isolated runtime that contains the application, dependencies, and configuration needed to run it.
+
+---
+
+## 20. What is a Docker Image?
+
+### Answer
+
+A Docker Image is a read-only blueprint used to create Docker Containers.
+
+---
+
+## 21. Image vs Container?
+
+| Image     | Container        |
+| --------- | ---------------- |
+| Blueprint | Running Instance |
+| Read-only | Executable       |
+| Static    | Dynamic          |
+
+---
+
+## 22. What is a Dockerfile?
+
+### Answer
+
+A Dockerfile is a text file containing instructions used to build a Docker Image.
+
+Example:
+
+```dockerfile
+FROM node:20
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+
+CMD ["npm","start"]
+```
+
+---
+
+## 23. What is Docker Compose?
+
+### Answer
+
+Docker Compose is a tool used to define and run multiple containers (such as a Node.js app and MongoDB) using a single `docker-compose.yml` file.
+
+---
+
+## 24. Explain Docker Workflow.
+
+### Answer
+
+```text
+Dockerfile
+
+↓
+
+Docker Image
+
+↓
+
+Docker Container
+
+↓
+
+Application Runs
+```
+
+---
+
+## 25. What is the difference between Docker and Virtual Machine?
+
+| Docker               | Virtual Machine       |
+| -------------------- | --------------------- |
+| Lightweight          | Heavy                 |
+| Shares Host OS       | Has Separate OS       |
+| Faster Startup       | Slower Startup        |
+| Lower Resource Usage | Higher Resource Usage |
+
+---
+
+## ⭐ Most Asked Interview Questions
+
+1. What is an API Key?
+2. Why should API keys not be stored in the frontend?
+3. What is the Gemini API?
+4. Explain AI Request Flow.
+5. What is Prompt Engineering?
+6. How do you handle AI API errors?
+7. What is Deployment?
+8. What is Vercel?
+9. What is Render?
+10. What is MongoDB Atlas?
+11. What are Environment Variables?
+12. What is Production?
+13. What is CORS in production?
+14. What is Docker?
+15. Why Docker?
+16. Docker Image vs Container?
+17. What is a Dockerfile?
+18. What is Docker Compose?
+19. Docker vs Virtual Machine?
+20. Explain the Docker workflow.
+
+---
+
+# 🚀 Quick Revision
+
+- **API Key** → Secret for accessing APIs.
+- **Never expose API keys in frontend** → Keep them on the backend or in environment variables.
+- **Gemini API** → Google's AI API.
+- **Prompt Engineering** → Writing effective prompts.
+- **Fallback** → Backup response if AI fails.
+- **Deployment** → Making an app live.
+- **Vercel** → Frontend deployment.
+- **Render** → Backend deployment.
+- **MongoDB Atlas** → Cloud database.
+- **Environment Variables** → Store secrets securely.
+- **Production** → Live environment.
+- **Docker** → Containerization platform.
+- **Image** → Blueprint.
+- **Container** → Running application.
+- **Dockerfile** → Instructions to build an image.
+- **Docker Compose** → Manage multiple containers.
+- **Docker Workflow** → Dockerfile → Image → Container → Application.

@@ -1,0 +1,31 @@
+https://github.com:
+
+1. Enter URL
+
+↓
+
+2. DNS finds IP Address
+
+↓
+
+3. Browser connects to Server
+
+↓
+
+4. HTTP Request is sent
+
+↓
+
+5. Server processes the request
+
+↓
+
+6. Database is accessed (if needed)
+
+↓
+
+7. Server sends Response
+
+↓
+
+8. Browser renders the page

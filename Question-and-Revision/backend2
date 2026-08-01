@@ -1,0 +1,414 @@
+
+# 1. What is Express Router?
+
+### Answer
+
+Express Router is a mini version of the Express application that helps organize routes into separate modules. Instead of writing all routes in `app.js`, routes are grouped by feature (users, products, auth), making the project cleaner and easier to maintain. 
+
+### Example
+
+```javascript
+const express = require("express");
+const router = express.Router();
+
+router.get("/", getUsers);
+
+module.exports = router;
+```
+
+---
+
+# 2. Difference between `app` and `router`?
+
+| app                      | router                      |
+| ------------------------ | --------------------------- |
+| Main Express application | Mini Express application    |
+| Used once                | Can create multiple routers |
+| Starts the server        | Organizes related routes    |
+
+---
+
+# 3. What is `req.headers`?
+
+### Answer
+
+`req.headers` contains all HTTP request headers sent by the client. It is commonly used to read authentication tokens, content type, cookies, and other request metadata. 
+
+### Example
+
+```javascript
+const token = req.headers.authorization;
+```
+
+---
+
+# 4. What is `req.cookies`?
+
+### Answer
+
+`req.cookies` contains cookies sent by the client. It requires the `cookie-parser` middleware to parse cookies into the request object. 
+
+### Example
+
+```javascript
+const token = req.cookies.token;
+```
+
+---
+
+# 5. What is `req.ip`?
+
+### Answer
+
+`req.ip` returns the IP address of the client making the request.
+
+### Example
+
+```javascript
+console.log(req.ip);
+```
+
+---
+
+# 6. What is `req.method`?
+
+### Answer
+
+`req.method` returns the HTTP method used for the request.
+
+Example values:
+
+* GET
+* POST
+* PUT
+* PATCH
+* DELETE
+
+---
+
+# 7. Difference between PUT and PATCH?
+
+| PUT                         | PATCH                         |
+| --------------------------- | ----------------------------- |
+| Updates the entire resource | Updates only specified fields |
+| Sends complete object       | Sends only changed fields     |
+
+### Example
+
+PUT
+
+```http
+PUT /users/1
+```
+
+PATCH
+
+```http
+PATCH /users/1
+```
+
+---
+
+# 8. What are HTTP Headers?
+
+### Answer
+
+HTTP Headers are key-value pairs that provide additional information about the request or response.
+
+Common Headers
+
+* Authorization
+* Content-Type
+* Accept
+* Cookie
+* Origin
+
+Example
+
+```http
+Authorization: Bearer JWT_TOKEN
+```
+
+---
+
+# 9. What are REST API Best Practices?
+
+### Answer
+
+Some important REST API best practices are:
+
+* Use nouns instead of verbs (`/users`, not `/getUsers`)
+* Use proper HTTP methods (GET, POST, PUT, PATCH, DELETE)
+* Return meaningful HTTP status codes
+* Validate request data
+* Support pagination and filtering
+* Keep endpoints consistent
+* Version APIs (e.g., `/api/v1/users`)
+
+These practices make APIs easier to use, maintain, and scale. ([w4school.in][3])
+
+---
+
+# 10. How do you handle asynchronous errors in Express?
+
+### Answer
+
+Asynchronous errors can be handled using `try...catch`, centralized error-handling middleware, or helper libraries such as `express-async-handler`. In Express 5, rejected promises from async route handlers are automatically forwarded to error-handling middleware. ([InterviewPrep][4])
+
+### Example
+
+```javascript
+try {
+    const user = await User.findById(id);
+} catch (err) {
+    next(err);
+}
+```
+
+---
+
+# 11. What is Custom Middleware?
+
+### Answer
+
+Custom Middleware is middleware written by the developer to perform specific tasks such as authentication, logging, validation, or request preprocessing.
+
+### Example
+
+```javascript
+const auth = (req, res, next) => {
+    console.log("Authenticated");
+    next();
+};
+```
+
+---
+
+# 12. What is Error Handling Middleware?
+
+### Answer
+
+Error-handling middleware is a special Express middleware with four parameters:
+
+```javascript
+(err, req, res, next)
+```
+
+It catches application errors and sends a consistent error response to the client. ([Express.js][1])
+
+### Example
+
+```javascript
+app.use((err, req, res, next) => {
+    res.status(500).json({
+        message: err.message
+    });
+});
+```
+
+---
+
+# 13. Explain CRUD API Flow.
+
+### Answer
+
+A CRUD request follows this flow:
+
+```text
+Client
+
+↓
+
+Route
+
+↓
+
+Middleware
+
+↓
+
+Controller
+
+↓
+
+Service (Optional)
+
+↓
+
+Model
+
+↓
+
+Database
+
+↓
+
+Response
+```
+
+The route receives the request, middleware performs tasks such as authentication or validation, the controller handles business logic, the model interacts with the database, and the response is returned to the client.
+
+---
+
+# 14. Explain User Authentication Flow.
+
+### Answer
+
+```text
+User Registers
+
+↓
+
+Password Hashed (bcrypt)
+
+↓
+
+Saved in Database
+
+↓
+
+User Logs In
+
+↓
+
+Password Compared
+
+↓
+
+JWT Generated
+
+↓
+
+Token Sent to Client
+
+↓
+
+Client Sends Token with Every Request
+
+↓
+
+Protected Route Verified
+```
+
+---
+
+# 15. Explain Refresh Token Flow.
+
+### Answer
+
+```text
+User Logs In
+
+↓
+
+Access Token
+
+↓
+
+Refresh Token
+
+↓
+
+Access Token Expires
+
+↓
+
+Refresh Token Sent
+
+↓
+
+Server Verifies Refresh Token
+
+↓
+
+New Access Token Generated
+```
+
+This improves security by keeping access tokens short-lived while allowing users to stay logged in.
+
+---
+
+# 16. What is Pagination?
+
+### Answer
+
+Pagination divides large datasets into smaller pages to improve performance and reduce the amount of data returned in one request.
+
+### Example
+
+```text
+GET /users?page=2&limit=10
+```
+
+---
+
+# 17. What is Filtering and Sorting?
+
+### Answer
+
+Filtering returns only records matching specific conditions, while sorting arranges the returned records in a particular order.
+
+### Example
+
+```text
+GET /products?category=Book
+
+GET /products?sort=price&order=desc
+```
+
+---
+
+# 18. Explain File Upload Flow.
+
+### Answer
+
+```text
+Client
+
+↓
+
+Multipart/Form-Data Request
+
+↓
+
+Multer Middleware
+
+↓
+
+Server Storage (Disk/Cloud)
+
+↓
+
+Database Stores File Path
+
+↓
+
+Response Returned
+```
+
+Multer processes uploaded files before they are stored or used.
+
+---
+
+# ⭐ Backend Quick Revision (Final)
+
+* **Express Router** → Organizes routes into modules.
+* **app** → Main application.
+* **router** → Feature-specific routing.
+* **req.headers** → Request metadata.
+* **req.cookies** → Client cookies.
+* **req.ip** → Client IP address.
+* **PUT** → Update entire resource.
+* **PATCH** → Update specific fields.
+* **HTTP Headers** → Extra request/response information.
+* **REST API** → Use nouns, proper HTTP methods, and status codes.
+* **Async Errors** → Handle with `try...catch`, `next(err)`, or centralized error middleware.
+* **Custom Middleware** → Developer-defined middleware.
+* **Error Middleware** → Signature: `(err, req, res, next)`.
+* **CRUD Flow** → Route → Middleware → Controller → Model → Database.
+* **Authentication Flow** → bcrypt → JWT → Protected Routes.
+* **Refresh Token** → Generate new access tokens.
+* **Pagination** → `page` + `limit`.
+* **Filtering** → Return matching records.
+* **Sorting** → Order results.
+* **File Upload** → Multer processes uploaded files before storage.

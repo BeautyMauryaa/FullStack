@@ -1,0 +1,36 @@
+- set of rules that allows the client and server to communicate using http
+
+- rest princlipal:
+client server architecture
+stateless (no session)
+uses http methods
+return json
+
+
+# rest api flow
+
+Client
+
+↓
+
+HTTP Request
+
+↓
+
+REST API
+
+↓
+
+Business Logic
+
+↓
+
+Database
+
+↓
+
+JSON Response
+
+↓
+
+Client

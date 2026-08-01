@@ -1,0 +1,8 @@
+# dns: domain name system:
+- convert a domain name into an ip address
+- ex: google.com -> 89.207.132.170
+- because computer can understand only ip address not domain names
+
+
+- internet phonebook it translate human  readable domain names into machine readable ip addressess
+

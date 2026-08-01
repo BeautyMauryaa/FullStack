@@ -1,0 +1,45 @@
+# http and https:
+- hyper textmarkup language used to transfer data btw client and server
+- datais sent in plain text so making it less secure
+
+
+- https is a secure version of http
+- it encrypt data using using ssl and tlc certificates making comuunication safe
+
+Difference
+HTTP	                      HTTPS
+Not Secure	                Secure
+Port 80	                  Port 443
+No Encryption	          Encrypted
+Faster (slightly)	      Slightly slower due to encryption
+Not recommended	        Recommended
+
+# without https:
+Login
+
+↓
+
+Username
+
+↓
+
+Password
+
+↓
+
+Anyone on the network can potentially intercept the data.
+
+
+# with https:
+Login
+
+↓
+
+Encrypted Data
+
+↓
+
+Only the server can decrypt it.
+
+
+//

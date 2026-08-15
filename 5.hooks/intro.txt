@@ -1,0 +1,31 @@
+hooks- function that connect our component to react internal system(this is the reason behind why react is dynamic)
+
+(whatever inreact starting with use is called hook)
+=some rules of hook:
+1. can't use hooks inside any conditonal statment or in any statement it should be on top of any function
+ex: if(condition){
+    usestate()-wrong way
+}
+
+function(){
+    const [jdkf,jkdf]=useState(kk);
+}
+
+//core mental model:
+//react-hooks runs-ui update-userinteract-state changes-re-renders
+
+the logic is we can't write hook inside conditional statement or look now why?
+-react doesn't care about name its only care about position(index)
+//image you have written something like this
+usestate(name);
+if(condition){
+    useeffect(api logic);
+}
+usestate(coutn);
+//react renders hooks 1 print your name
+//now skip the second hook(api logic because condition is false)
+
+//now react goes to usestate hook3(count)--- which we know react doesn't care about name its only care about index
+//so now in the olace of hooks 2 the hooks 3 will come 
+//so the react think hook1 -name..hoo2-count...so it will print at the place of api logic count..which crash the ui system...
+(imagine its like linked list move by using pointer)

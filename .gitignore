@@ -1,11 +1,34 @@
-*.exe
-*.o
-*.out
-/node_modules
-output/
+# Node.js
+node_modules/
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+**/!.env.example
+
+# Build and coverage output
+dist/
+build/
+coverage/
+.next/
+.vite/
+
+# Python
+.venv/
+venv/
+**/.venv/
+**/venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Editors and OS
 .vscode/
-mypart.md
-Communication.pdf
-FullStack.pdf
-*.pdf
-zzz.md
+.DS_Store

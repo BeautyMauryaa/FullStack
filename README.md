@@ -1,65 +1,45 @@
-# fullstack 🚀
-Welcome to my build log. This repository is a technical record of my journey from backend fundamentals to shipping a real, production-grade full stack application with AI integration.
-I am Beauty — a developer who believes in building things that actually work, understanding every layer of the stack
-## Why I started this
-I wanted to go from knowing a bit of JavaScript to being able to build and deploy a complete production-ready application. Backend, frontend, databases, AI features, Docker — the whole thing. This repo is where that happens.
+# Full-Stack Learning Journal
 
-## How this repo is organized
+A structured learning repository for practicing the pieces that go into full-stack applications: JavaScript fundamentals, backend APIs, databases, frontend integration, AI integration, and deployment concepts.
 
-```text
-fullstack-journey/
-├── .gitignore
-├── README.md
-│
-├── foundation/
-│   ├── js-basics.js
-│   ├── async-await.js
-│   ├── promises.js
-│   └── notes.md
-│
-├── backend/
-│   ├── auth-api/
-│   └── notes.md
-│
-├── database/
-│   ├── mongo-practice/
-│   ├── redis-practice/
-│   └── notes.md
-│
-├── frontend/
-│   ├── react-dashboard/
-│   └── notes.md
-│
-└── project/
-    ├── backend/
-    │   ├── src/
-    │   │   ├── controllers/
-    │   │   ├── middlewares/
-    │   │   ├── models/
-    │   │   ├── routes/
-    │   │   ├── services/
-    │   │   └── utils/
-    │   ├── .env.example
-    │   └── server.js
-    ├── frontend/
-    │   ├── src/
-    │   │   ├── components/
-    │   │   ├── pages/
-    │   │   ├── hooks/
-    │   │   ├── store/
-    │   │   └── api/
-    │   ├── .env.example
-    │   └── package.json
-    ├── docker-compose.yml
-    ├── setup.md
-    └── README.md
+This is a learning log with practical exercises and project experiments—not a claim that every example is production-ready.
+
+## Repository map
+
+- `0.Foundation/` — foundational notes and concepts
+- `1.Backend/` — Node.js and backend exercises
+- `2.Database/` — database practice and notes
+- `3.Frontend-Integration/` — frontend and API integration work
+- `4.AI-Integration/` — AI-related experiments
+- `5.Deployment/` — deployment and infrastructure notes
+- `Question-and-Revision/` — review material and practice questions
+- `project/` — larger application code and supporting setup notes, where present
+
+Use the files inside each section as the source of truth; examples may change as the learning path evolves.
+
+## Technologies explored
+
+JavaScript/TypeScript, React, Node.js, Express, MongoDB, Redis, Docker, and AI API integration.
+
+## Working with examples
+
+For a folder containing `package.json`:
+
+```bash
+cd path/to/folder
+npm install
 ```
 
-## What I'm following
+Then use the scripts in that folder's `package.json`. For projects with a `.env.example`, copy it to `.env` and replace placeholders locally. Never commit real credentials.
 
-- **Language:** JavaScript / TypeScript
-- **Stack:** Node.js · Express · MongoDB · Redis · React · Docker
-- **Approach:** Learn the concept → build a small version → plug it into the main project → document what confused me
+## Learning approach
 
-## Commit style
-Every time I finish a topic or fix something I was stuck on — I commit. Small and consistent.
+The goal is to understand the concept, build a small working version, connect it to a larger example where appropriate, and document what changed or was confusing.
+
+## Current cleanup note
+
+Some nested exercises already contain committed `node_modules` directories. This repository now ignores nested Node dependencies for future changes, but existing tracked dependencies still need a separate cleanup before the repository is lightweight.
+
+## Author
+
+**Beauty Mauryaa** · [GitHub](https://github.com/BeautyMauryaa)

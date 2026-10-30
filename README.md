@@ -1,45 +1,50 @@
-# Full-Stack Learning Journal
+# Full-Stack Development
 
-A structured learning repository for practicing the pieces that go into full-stack applications: JavaScript fundamentals, backend APIs, databases, frontend integration, AI integration, and deployment concepts.
+A learning and practice repository covering the core parts of web application development — from JavaScript fundamentals and frontend concepts to backend development, databases, integration, and deployment.
 
-This is a learning log with practical exercises and project experiments—not a claim that every example is production-ready.
+This repository brings together notes, exercises, small implementations, and experiments as I strengthen my web development foundations. The code is for learning and practice; individual examples may be at different stages of completion.
 
-## Repository map
+## Repository Structure
 
-- `0.Foundation/` — foundational notes and concepts
-- `1.Backend/` — Node.js and backend exercises
-- `2.Database/` — database practice and notes
-- `3.Frontend-Integration/` — frontend and API integration work
-- `4.AI-Integration/` — AI-related experiments
-- `5.Deployment/` — deployment and infrastructure notes
-- `Question-and-Revision/` — review material and practice questions
-- `project/` — larger application code and supporting setup notes, where present
+| Directory | Focus |
+|---|---|
+| `0.Foundation/` | Web development fundamentals |
+| `0.JavaScript-Complete/` | JavaScript concepts and practice |
+| `1.Backend/` | Server-side development and API exercises |
+| `2.Database/` | Database concepts and SQL practice |
+| `3.Frontend-Integration/` | Frontend concepts and connecting applications to APIs |
+| `4.AI-Integration/` | Experiments integrating AI APIs into applications |
+| `5.Deployment/` | Deployment-related learning and experiments |
+| `React-Concept/` | React concepts and practice |
+| `Question-and-Revision/` | Revision notes and practice questions |
+| `Basic-internet/` | Internet and web fundamentals |
+| `Allegory/`, `pract-project/` | Additional exercises and project experiments |
 
-Use the files inside each section as the source of truth; examples may change as the learning path evolves.
+The folders may evolve as I revisit topics, improve implementations, and add new exercises.
 
-## Technologies explored
+## Technologies
 
-JavaScript/TypeScript, React, Node.js, Express, MongoDB, Redis, Docker, and AI API integration.
+JavaScript, React, Node.js, Express.js, MongoDB, PostgreSQL, HTML, CSS, and related web development tools.
 
-## Working with examples
+Technologies and concepts are explored at different levels; this repository reflects ongoing practice rather than claiming production-level expertise in every tool.
 
-For a folder containing `package.json`:
+## Running the Code
 
-```bash
-cd path/to/folder
-npm install
-```
+Projects and exercises may have their own dependencies and setup instructions.
 
-Then use the scripts in that folder's `package.json`. For projects with a `.env.example`, copy it to `.env` and replace placeholders locally. Never commit real credentials.
+1. Open the relevant project or exercise folder.
+2. Check its `README.md` or `package.json` for setup instructions and available scripts.
+3. Install dependencies within that project folder before running it.
 
-## Learning approach
+Do not commit local environment files, credentials, or generated dependency folders.
 
-The goal is to understand the concept, build a small working version, connect it to a larger example where appropriate, and document what changed or was confusing.
+## Learning Goals
 
-## Current cleanup note
+- Build a clear understanding of frontend and backend fundamentals.
+- Practice API development and database integration.
+- Understand how different parts of a web application work together.
+- Gradually improve code quality, debugging, and deployment skills.
 
-Some nested exercises already contain committed `node_modules` directories. This repository now ignores nested Node dependencies for future changes, but existing tracked dependencies still need a separate cleanup before the repository is lightweight.
+---
 
-## Author
-
-**Beauty Mauryaa** · [GitHub](https://github.com/BeautyMauryaa)
+**Author:** [Beauty Mauryaa](https://github.com/BeautyMauryaa)

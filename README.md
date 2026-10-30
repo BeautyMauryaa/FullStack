@@ -24,7 +24,7 @@ The folders may evolve as I revisit topics, improve implementations, and add new
 
 ## Technologies
 
-JavaScript, React, Node.js, Express.js, MongoDB, PostgreSQL, HTML, CSS, and related web development tools.
+JavaScript, React, Node.js, Express.js, MongoDB,  HTML, CSS, and related web development tools.
 
 Technologies and concepts are explored at different levels; this repository reflects ongoing practice rather than claiming production-level expertise in every tool.
 

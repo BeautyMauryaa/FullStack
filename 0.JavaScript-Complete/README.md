@@ -1,6 +1,7 @@
 # Complete JavaScript Repository
 
 Syllabus: [Javascript live](https://js-pillar.netlify.app/)
+
 Welcome to **Complete-JavaScript**, a fully structured JavaScript learning repository made by **Nova**
 This repo covers **everything from scratch to advanced** — with real hands-on projects and code examples.
 

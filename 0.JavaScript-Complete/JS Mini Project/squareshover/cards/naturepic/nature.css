@@ -1,0 +1,233 @@
+*{
+    margin:0%;
+    padding:0%;
+}
+html,body{
+    height: 100%;
+    width:100%;
+    background-image: url(https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG5hdHVyZSUyMGJsdXJsJTIwaW1hZ2V8ZW58MHx8MHx8fDA%3D);
+background-size: 20%;
+}
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:white;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#main{
+    height: 100%;
+    width:100%;
+}
+.pic{
+    height: 400px;
+    width: 330px;
+    border: 1px solid white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border-radius: 10%;
+    overflow: hidden;
+}
+#pic1{
+    z-index:36;
+    transform: translate(-50%,-50%)  rotate(7deg);
+}
+#pic1:hover{
+    z-index: 180;
+}
+#pic2{
+    z-index:35;
+    transform: translate(-50%,-50%)  rotate(14deg);
+}
+#pic2:hover{
+    z-index: 217;
+}
+#pic3{
+    z-index:34;
+    transform: translate(-50%,-50%)  rotate(21deg);
+}
+#pic3:hover{
+    z-index: 210;
+}
+#pic4{
+    z-index:33;
+    transform: translate(-50%,-50%)  rotate(28deg);
+}
+#pic36:hover{
+    z-index: 200;
+}
+#pic5{
+    z-index:32;
+    transform: translate(-50%,-50%)  rotate(35deg);
+}
+#pic36:hover{
+    z-index: 200;
+}
+#pic6{
+    z-index:31;
+    transform: translate(-50%,-50%)  rotate(42deg);
+}
+#pic7{
+    z-index:30;
+    transform: translate(-50%,-50%)  rotate(49deg);
+}
+#pic7:hover{
+    z-index: 200;
+}
+#pic8{
+    z-index:29;
+    transform: translate(-50%,-50%)  rotate(56deg);
+}
+#pic8:hover{
+    z-index: 200;
+}
+#pic9{
+    z-index:28;
+    transform: translate(-50%,-50%)  rotate(26deg);
+}
+#pic9:hover{
+    z-index: 200;
+}
+#pic10{
+    z-index:27;
+    transform: translate(-50%,-50%)  rotate(70deg);
+}
+#pic10:hover{
+    z-index: 200;
+}
+#pic11{
+    z-index:26;
+    transform: translate(-50%,-50%)  rotate(77deg);
+}
+#pic11:hover{
+    z-index: 200;
+}
+#pic12{
+    z-index:25;
+    transform: translate(-50%,-50%)  rotate(84deg);
+}
+#pic12:hover{
+    z-index: 200;
+}
+#pic13{
+    z-index:24;
+    transform: translate(-50%,-50%)  rotate(91deg);
+}
+#pic14:hover{
+    z-index: 200;
+}
+#pic14{
+    z-index:23;
+    transform: translate(-50%,-50%)  rotate(98deg);
+}
+#pic15{
+    z-index:22;
+    transform: translate(-50%,-50%)  rotate(103deg);
+}
+#pic15:hover{
+    z-index: 200;
+}
+#pic16{
+    z-index:21;
+    transform: translate(-50%,-50%)  rotate(110deg);
+}
+#pic16:hover{
+    z-index: 200;
+}
+#pic17{
+    z-index:20;
+    transform: translate(-50%,-50%)  rotate(117deg);
+}
+#pic18{
+    z-index:19;
+    transform: translate(-50%,-50%)  rotate(134deg);
+}
+#pic19{
+    z-index:18;
+    transform: translate(-50%,-50%)  rotate(141deg);
+}
+#pic20{
+    z-index:17;
+    transform: translate(-50%,-50%)  rotate(148deg);
+}
+#pic21{
+    z-index:16;
+    transform: translate(-50%,-50%)  rotate(153deg);
+}
+#pic22{
+    z-index:15;
+    transform: translate(-50%,-50%)  rotate(160deg);
+}
+#pic23{
+    z-index:14;
+    transform: translate(-50%,-50%)  rotate(167deg);
+}
+#pic24{
+    z-index:13;
+    transform: translate(-50%,-50%)  rotate(174deg);
+}
+#pic25{
+    z-index:12;
+    transform: translate(-50%,-50%)  rotate(181deg);
+}
+#pic26{
+    z-index:11;
+    transform: translate(-50%,-50%)  rotate(188deg);
+}
+#pic27{
+    z-index:10;
+    transform: translate(-50%,-50%)  rotate(195deg);
+}
+#pic28{
+    z-index:9;
+    transform: translate(-50%,-50%)  rotate(202deg);
+}
+#pic29{
+    z-index:8;
+    transform: translate(-50%,-50%)  rotate(209deg);
+}
+#pic30{
+    z-index:7;
+    transform: translate(-50%,-50%)  rotate(216deg);
+}
+#pic31{
+    z-index:6;
+    transform: translate(-50%,-50%)  rotate(232deg);
+}
+#pic32{
+    z-index:5;
+    transform: translate(-50%,-50%)  rotate(239deg);
+}
+#pic33{
+    z-index:4;
+    transform: translate(-50%,-50%)  rotate(246deg);
+}
+#pic34{
+    z-index:3;
+    transform: translate(-50%,-50%)  rotate(253deg);
+}
+#pic35{
+    z-index:2;
+    transform: translate(-50%,-50%)  rotate(260deg);
+}
+#pic35:hover{
+    z-index: 190;
+}
+#pic36{
+    z-index:1;
+    transform: translate(-50%,-50%)  rotate(267deg);
+}
+#pic36:hover{
+    z-index: 200;
+}
+ img{
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+} 
+
+

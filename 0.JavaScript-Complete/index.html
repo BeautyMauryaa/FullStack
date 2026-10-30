@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<<<<<<< HEAD
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catch Me If You Can</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ════════════════════════════════
+         SCREEN 1 — ENTRY
+    ════════════════════════════════ -->
+    <div class="screen active" id="screen-entry">
+      <div class="entry-top">
+        <div class="streak-badge">
+          <span class="streak-fire" id="streak-fire">🔥</span>
+          <span class="streak-count" id="streak-count">Day 1</span>
+        </div>
+        <div class="best-badge">
+          Round <span id="best-round">—</span>
+        </div>
+      </div>
+
+      <div class="entry-center">
+        <div class="entry-label">CATCH ME IF YOU CAN</div>
+        <h1 class="entry-greeting" id="entry-greeting">Let's see what you've got.</h1>
+        <p class="entry-sub">5 rounds. Escaping button. Your focus vs my speed.</p>
+      </div>
+
+      <div class="entry-bottom">
+        <button class="btn-main" id="btn-start">Start Game</button>
+        <p class="entry-hint">Win all 5 rounds → unlock your Lucky Cheat</p>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 1B — PUZZLE
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-puzzle">
+      <div class="puzzle-round-tag" id="puzzle-round-tag">ROUND 1 OF 5</div>
+
+      <div class="puzzle-card">
+        <div class="puzzle-label">🧩 Decode this round</div>
+        <p class="puzzle-riddle" id="puzzle-riddle"></p>
+      </div>
+
+      <div class="puzzle-hint-wrap hidden" id="puzzle-hint-wrap">
+        <div class="puzzle-hint-label">💡 What this means</div>
+        <p class="puzzle-hint-text" id="puzzle-hint-text"></p>
+      </div>
+
+      <button class="btn-main" id="btn-puzzle-go">Got it — Let's Go</button>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 2 — ROUND INTRO
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-round-intro">
+      <div class="round-intro-label">ROUND</div>
+      <div class="round-intro-number" id="intro-round-num">1</div>
+      <div class="round-intro-of">OF 5</div>
+      <p class="round-intro-mechanic" id="intro-mechanic">Basic escape. I move when you get close.</p>
+      <div class="round-intro-countdown" id="intro-countdown">3</div>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 3 — GAME
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-game">
+
+      <!-- Top HUD — inline style matching mockup -->
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">ROUND</span>
+          <span class="hud-value" id="hud-round">1/5</span>
+        </div>
+        <div class="hud-item" style="border-left:1px solid rgba(255,255,255,0.12); padding-left:16px; margin-left:8px;">
+          <span class="hud-label">TIMER:</span>
+          <span class="hud-timer-num" id="hud-timer">20</span>
+          <div class="hud-timer-bar-wrap">
+            <div class="hud-timer-bar" id="hud-timer-bar"></div>
+          </div>
+        </div>
+        <div class="hud-item" style="margin-left:auto;">
+          <span class="hud-label">ESCAPED</span>
+          <span class="hud-value" id="hud-escapes">0</span>
+        </div>
+      </div>
+
+      <!-- Taunt -->
+      <div class="taunt-wrap" id="taunt-wrap">
+        <p class="taunt-text" id="taunt-text"></p>
+      </div>
+
+      <!-- Arena -->
+      <div class="arena-wrap">
+        <div class="arena" id="arena">
+          <div class="arena-corner tl"></div>
+          <div class="arena-corner tr"></div>
+          <div class="arena-corner bl"></div>
+          <div class="arena-corner br"></div>
+
+          <!-- Bait Zone -->
+          <div class="bait-zone hidden" id="bait-zone">
+            <div class="bait-ring"></div>
+            <div class="bait-countdown" id="bait-countdown"></div>
+          </div>
+
+          <!-- The real button -->
+          <button class="catch-btn real-btn" id="real-btn" data-real="true">
+            REAL
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom hint -->
+      <div class="game-bottom">
+        <p class="game-round-hint" id="game-round-hint"></p>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 4A — ROUND CLEAR
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-round-clear">
+      <div class="round-clear-emoji" id="clear-emoji">😮</div>
+      <h2 class="round-clear-title" id="clear-title">Round 1 — Done.</h2>
+      <p class="round-clear-sub" id="clear-sub">You got lucky. Next one's harder.</p>
+
+      <!-- Pip progress -->
+      <div class="progress-track-wrap" id="clear-progress-pips">
+        <div class="progress-pip done"></div>
+        <div class="progress-pip"></div>
+        <div class="progress-pip"></div>
+        <div class="progress-pip"></div>
+        <div class="progress-pip"></div>
+      </div>
+
+      <div class="round-clear-next">NEXT ROUND IN <span id="clear-countdown">3</span>...</div>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 4B — GAME OVER
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-gameover">
+      <div class="go-emoji">💀</div>
+      <h2 class="go-title" id="go-title">Game Over.</h2>
+      <p class="go-message" id="go-message">The fake buttons fooled you. Predictable.</p>
+
+      <!-- Progress bar -->
+      <div class="go-progress-wrap">
+        <div class="go-progress-label">How far you got</div>
+        <div class="go-progress-track">
+          <div class="go-progress-fill" id="go-progress-fill"></div>
+        </div>
+        <div class="go-progress-rounds">
+          <span>R1</span><span>R2</span><span>R3</span><span>R4</span><span>R5</span>
+        </div>
+      </div>
+
+      <button class="btn-main" id="btn-retry">Try Again</button>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 5 — WIN
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-win">
+
+      <div class="win-top">
+        <div class="win-emoji" id="win-emoji">🎉</div>
+        <h2 class="win-title" id="win-title">You actually did it.</h2>
+        <p class="win-message" id="win-message">5 rounds. Most people quit at 3.</p>
+        <div class="win-streak" id="win-streak">🔥 Day 1 streak</div>
+      </div>
+
+      <!-- Lucky Cheat section -->
+      <div class="cheat-section" id="cheat-section">
+        <button class="btn-cheat" id="btn-reveal-cheat">
+          Reveal Lucky Cheat ✦
+        </button>
+
+        <div class="cheat-card hidden" id="cheat-card">
+          <div class="cheat-day-tag" id="cheat-day">Monday</div>
+          <p class="cheat-text" id="cheat-text"></p>
+        </div>
+      </div>
+
+      <!-- Challenge section -->
+      <div class="challenge-section hidden" id="challenge-section">
+        <button class="btn-challenge" id="btn-accept-challenge">
+          I Accept This Challenge.
+        </button>
+
+        <div class="challenge-card hidden" id="challenge-card">
+          <div class="challenge-label">Today's Challenge</div>
+          <p class="challenge-text" id="challenge-text"></p>
+          <div class="challenge-check">
+            <p class="challenge-check-label">Did you complete it?</p>
+            <div class="challenge-btns">
+              <button class="btn-check yes" id="btn-yes">Yes, done.</button>
+              <button class="btn-check no" id="btn-no">Not yet.</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-ghost" id="btn-play-again">Play Again Tomorrow</button>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="memory.js"></script>
+    <script src="script.js"></script>
+  </body>
+=======
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript — Company Level Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #1e1e2e;
+    --accent: #f7c948;
+    --accent2: #e05c2a;
+    --accent3: #3ecfcf;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --green: #4ade80;
+    --radius: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 40px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  h1 span { color: var(--accent); }
+  .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .progress-bar-wrap {
+    margin-top: 32px;
+    background: var(--border);
+    border-radius: 100px;
+    height: 6px;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 100px;
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .progress-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  .progress-label span { color: var(--accent); }
+
+  /* SECTION TABS */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 40px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover, .tab-btn.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* MAIN GRID */
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+  .section { display: none; }
+  .section.active { display: block; }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* TOPIC CARDS */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .topic-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .topic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .topic-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .topic-card:hover::before { opacity: 1; }
+  .topic-card.done { border-color: var(--green); opacity: 0.7; }
+  .topic-card.done::before { background: var(--green); opacity: 1; }
+  .topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .topic-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .check-btn {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: transparent;
+  }
+  .topic-card.done .check-btn {
+    background: var(--green);
+    border-color: var(--green);
+    color: #000;
+  }
+  .topic-desc {
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .chip {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+  .chip.hot { border-color: var(--accent2); color: var(--accent2); }
+  .chip.key { border-color: var(--accent); color: var(--accent); }
+  .chip.new { border-color: var(--accent3); color: var(--accent3); }
+
+  /* CODE SNIPPET BLOCK */
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 14px;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #aaa;
+    overflow-x: auto;
+    display: none;
+  }
+  .code-block.open { display: block; }
+  .kw { color: #c678dd; }
+  .fn { color: #61afef; }
+  .str { color: #98c379; }
+  .cm { color: #5c6370; font-style: italic; }
+  .num { color: #d19a66; }
+  .toggle-code {
+    font-size: 10px;
+    color: var(--accent3);
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: underline;
+    user-select: none;
+    letter-spacing: 0.5px;
+  }
+
+  /* INTERVIEW PANEL */
+  .interview-grid {
+    display: grid;
+    gap: 12px;
+  }
+  .iq-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .iq-q {
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s;
+    gap: 16px;
+  }
+  .iq-q:hover { background: var(--surface); }
+  .iq-q .arrow { color: var(--accent); font-size: 14px; transition: transform 0.2s; flex-shrink: 0; }
+  .iq-q.open .arrow { transform: rotate(90deg); }
+  .iq-ans {
+    display: none;
+    padding: 0 20px 18px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+  .iq-ans.open { display: block; }
+  .iq-ans code {
+    background: var(--surface);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent3);
+    font-size: 11px;
+  }
+
+  /* CHEATSHEET */
+  .cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .cheat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .cheat-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .cheat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+    font-size: 11.5px;
+  }
+  .cheat-item:last-child { border-bottom: none; }
+  .cheat-item .label { color: var(--muted); flex: 1; }
+  .cheat-item .val { color: var(--accent3); font-size: 11px; text-align: right; }
+
+  /* SCROLL */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  @media (max-width: 600px) {
+    header, .tabs, main { padding-left: 20px; padding-right: 20px; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .cheat-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">// Company-Level Mastery</div>
+  <h1>JavaScript<br><span>Roadmap</span></h1>
+  <p class="subtitle">Every topic that matters in a real job. Mark done as you go. No fluff, no tutorials—just what companies actually use.</p>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-label">Progress: <span id="progressText">0 / 0</span> topics completed</div>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('core')">Core Fundamentals</button>
+  <button class="tab-btn" onclick="showTab('async')">Async JS</button>
+  <button class="tab-btn" onclick="showTab('advanced')">Advanced Concepts</button>
+  <button class="tab-btn" onclick="showTab('modern')">Modern ES6+</button>
+  <button class="tab-btn" onclick="showTab('interviews')">Interview Q&A</button>
+  <button class="tab-btn" onclick="showTab('cheatsheet')">Cheatsheet</button>
+</div>
+
+<main>
+
+<!-- ===== CORE ===== -->
+<section class="section active" id="section-core">
+  <div class="section-title">01 — Core Fundamentals</div>
+  <div class="topics-grid" id="grid-core"></div>
+</section>
+
+<!-- ===== ASYNC ===== -->
+<section class="section" id="section-async">
+  <div class="section-title">02 — Asynchronous JavaScript</div>
+  <div class="topics-grid" id="grid-async"></div>
+</section>
+
+<!-- ===== ADVANCED ===== -->
+<section class="section" id="section-advanced">
+  <div class="section-title">03 — Advanced Concepts</div>
+  <div class="topics-grid" id="grid-advanced"></div>
+</section>
+
+<!-- ===== MODERN ===== -->
+<section class="section" id="section-modern">
+  <div class="section-title">04 — Modern ES6+</div>
+  <div class="topics-grid" id="grid-modern"></div>
+</section>
+
+<!-- ===== INTERVIEWS ===== -->
+<section class="section" id="section-interviews">
+  <div class="section-title">05 — Top Interview Questions</div>
+  <div class="interview-grid" id="grid-interviews"></div>
+</section>
+
+<!-- ===== CHEATSHEET ===== -->
+<section class="section" id="section-cheatsheet">
+  <div class="section-title">06 — Quick Reference Cheatsheet</div>
+  <div class="cheat-grid" id="grid-cheatsheet"></div>
+</section>
+
+</main>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────
+const topics = {
+  core: [
+    {
+      name: "var / let / const",
+      desc: "var is function-scoped and hoisted. let and const are block-scoped. const doesn't allow reassignment. Companies almost never use var.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "scoping", cls: "" }, { t: "hoisting", cls: "" }],
+      code: `<span class="kw">var</span> x = <span class="num">1</span>;   <span class="cm">// function-scoped, hoisted</span>\n<span class="kw">let</span> y = <span class="num">2</span>;   <span class="cm">// block-scoped</span>\n<span class="kw">const</span> z = <span class="num">3</span>; <span class="cm">// block-scoped, no reassign</span>\n\n<span class="cm">// Temporal Dead Zone (TDZ)</span>\nconsole.<span class="fn">log</span>(a); <span class="cm">// ReferenceError</span>\n<span class="kw">let</span> a = <span class="num">5</span>;`
+    },
+    {
+      name: "Data Types & Type Coercion",
+      desc: "7 primitives: string, number, bigint, boolean, undefined, null, symbol. Objects are reference types. Know == vs === and implicit coercion gotchas.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "typeof", cls: "" }, { t: "coercion", cls: "" }],
+      code: `<span class="kw">typeof</span> <span class="str">"hi"</span>  <span class="cm">// "string"</span>\n<span class="kw">typeof</span> <span class="num">42</span>    <span class="cm">// "number"</span>\n<span class="kw">typeof</span> <span class="kw">null</span>  <span class="cm">// "object" (famous bug)</span>\n\n<span class="num">0</span> == <span class="str">""</span>    <span class="cm">// true (coercion)</span>\n<span class="num">0</span> === <span class="str">""</span>   <span class="cm">// false (strict)</span>\n<span class="kw">null</span> == <span class="kw">undefined</span> <span class="cm">// true</span>`
+    },
+    {
+      name: "Functions & Scope",
+      desc: "Function declarations are hoisted; expressions are not. Understand lexical scope, scope chain, and the difference between regular and arrow functions.",
+      tags: [{ t: "KEY", cls: "key" }, { t: "hoisting", cls: "" }, { t: "lexical scope", cls: "" }],
+      code: `<span class="cm">// Declaration — hoisted</span>\n<span class="fn">greet</span>(); <span class="cm">// works</span>\n<span class="kw">function</span> <span class="fn">greet</span>() { <span class="kw">return</span> <span class="str">"hi"</span>; }\n\n<span class="cm">// Expression — NOT hoisted</span>\n<span class="kw">const</span> <span class="fn">add</span> = (<span class="fn">a</span>, <span class="fn">b</span>) => a + b;\n\n<span class="cm">// IIFE (Immediately Invoked)</span>\n(<span class="kw">function</span>() { console.<span class="fn">log</span>(<span class="str">"runs now"</span>); })();`
+    },
+    {
+      name: "Arrays & Array Methods",
+      desc: "map, filter, reduce, find, findIndex, some, every, flat, flatMap. These are used constantly in React, Node, and API handling.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "map/filter/reduce", cls: "" }, { t: "KEY", cls: "key" }],
+      code: `<span class="kw">const</span> nums = [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>];\n\nnums.<span class="fn">map</span>(n => n * <span class="num">2</span>)       <span class="cm">// [2,4,6,8]</span>\nnums.<span class="fn">filter</span>(n => n > <span class="num">2</span>)    <span class="cm">// [3,4]</span>\nnums.<span class="fn">reduce</span>((a,c) => a+c, <span class="num">0</span>) <span class="cm">// 10</span>\nnums.<span class="fn">find</span>(n => n > <span class="num">2</span>)      <span class="cm">// 3</span>\nnums.<span class="fn">some</span>(n => n > <span class="num">3</span>)      <span class="cm">// true</span>\nnums.<span class="fn">every</span>(n => n > <span class="num">0</span>)     <span class="cm">// true</span>`
+    },
+    {
+      name: "Objects & Manipulation",
+      desc: "Object.keys, values, entries, assign, freeze. Spread for shallow copy. JSON.parse/stringify for deep clone. Property shorthand and computed keys.",
+      tags: [{ t: "KEY", cls: "key" }, { t: "spread", cls: "" }, { t: "Object methods", cls: "" }],
+      code: `<span class="kw">const</span> user = { name: <span class="str">"Arjun"</span>, age: <span class="num">22</span> };\n\nObject.<span class="fn">keys</span>(user)    <span class="cm">// ["name","age"]</span>\nObject.<span class="fn">entries</span>(user) <span class="cm">// [["name","Arjun"],...]</span>\n\n<span class="cm">// Shallow copy</span>\n<span class="kw">const</span> copy = { ...user, age: <span class="num">23</span> };\n\n<span class="cm">// Deep clone</span>\n<span class="kw">const</span> deep = JSON.<span class="fn">parse</span>(JSON.<span class="fn">stringify</span>(user));`
+    },
+    {
+      name: "DOM Manipulation",
+      desc: "querySelector, createElement, appendChild, innerHTML vs textContent, classList, style. Understand reflow/repaint for performance.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "DOM", cls: "" }, { t: "UI", cls: "" }],
+      code: `<span class="kw">const</span> el = document.<span class="fn">querySelector</span>(<span class="str">"#app"</span>);\n\n<span class="cm">// Create & append</span>\n<span class="kw">const</span> p = document.<span class="fn">createElement</span>(<span class="str">"p"</span>);\np.textContent = <span class="str">"Hello"</span>;\nel.<span class="fn">appendChild</span>(p);\n\n<span class="cm">// Class toggling</span>\nel.classList.<span class="fn">toggle</span>(<span class="str">"active"</span>);\nel.classList.<span class="fn">add</span>(<span class="str">"visible"</span>);`
+    },
+    {
+      name: "Events & Event Handling",
+      desc: "addEventListener, event delegation, stopPropagation, preventDefault, event bubbling and capturing. Critical for performance in large apps.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "delegation", cls: "" }, { t: "bubbling", cls: "" }],
+      code: `<span class="cm">// Event delegation — one listener for many</span>\ndocument.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, (e) => {\n  <span class="kw">if</span> (e.target.<span class="fn">matches</span>(<span class="str">".btn"</span>)) {\n    console.<span class="fn">log</span>(<span class="str">"Button clicked!"</span>);\n  }\n});\n\n<span class="cm">// Prevent default (e.g. form submit)</span>\nform.<span class="fn">addEventListener</span>(<span class="str">"submit"</span>, e => {\n  e.<span class="fn">preventDefault</span>();\n});`
+    },
+    {
+      name: "Control Flow",
+      desc: "if/else, ternary, nullish coalescing (??), optional chaining (?.), switch, for/while/for...of/for...in. Know which loop to use when.",
+      tags: [{ t: "KEY", cls: "key" }, { t: "??", cls: "new" }, { t: "?.", cls: "new" }],
+      code: `<span class="cm">// Nullish coalescing</span>\n<span class="kw">const</span> name = user?.name ?? <span class="str">"Guest"</span>;\n\n<span class="cm">// Optional chaining</span>\n<span class="kw">const</span> city = user?.address?.city;\n\n<span class="cm">// for...of (arrays)</span>\n<span class="kw">for</span> (<span class="kw">const</span> item <span class="kw">of</span> arr) { ... }\n\n<span class="cm">// for...in (object keys)</span>\n<span class="kw">for</span> (<span class="kw">const</span> key <span class="kw">in</span> obj) { ... }`
+    },
+  ],
+  async: [
+    {
+      name: "Callbacks",
+      desc: "The original async pattern. Functions passed as arguments to run later. Lead to 'callback hell' — deeply nested, hard to read code.",
+      tags: [{ t: "foundation", cls: "" }, { t: "callback hell", cls: "hot" }],
+      code: `<span class="cm">// Callback hell — avoid this pattern</span>\n<span class="fn">getData</span>((<span class="fn">data</span>) => {\n  <span class="fn">processData</span>(data, (<span class="fn">result</span>) => {\n    <span class="fn">saveResult</span>(result, (<span class="fn">res</span>) => {\n      console.<span class="fn">log</span>(res); <span class="cm">// deeply nested!</span>\n    });\n  });\n});`
+    },
+    {
+      name: "Promises",
+      desc: "Represent eventual completion/failure. States: pending, fulfilled, rejected. Chain with .then()/.catch()/.finally(). Avoid callback hell.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: ".then/.catch", cls: "key" }, { t: "Promise.all", cls: "key" }],
+      code: `<span class="fn">fetch</span>(<span class="str">"/api/user"</span>)\n  .<span class="fn">then</span>(res => res.<span class="fn">json</span>())\n  .<span class="fn">then</span>(data => console.<span class="fn">log</span>(data))\n  .<span class="fn">catch</span>(err => console.<span class="fn">error</span>(err))\n  .<span class="fn">finally</span>(() => <span class="fn">setLoading</span>(<span class="kw">false</span>));\n\n<span class="cm">// Parallel requests</span>\n<span class="kw">const</span> [u, p] = <span class="kw">await</span> Promise.<span class="fn">all</span>([<span class="fn">fetchUser</span>(), <span class="fn">fetchPosts</span>()]);\n\n<span class="cm">// Race — first one wins</span>\nPromise.<span class="fn">race</span>([slow, fast]).<span class="fn">then</span>(first => ...);`
+    },
+    {
+      name: "Async / Await",
+      desc: "Syntactic sugar over Promises. Makes async code read like synchronous code. Always wrap in try/catch. This is what companies use daily.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "try/catch", cls: "key" }, { t: "KEY", cls: "key" }],
+      code: `<span class="kw">const</span> <span class="fn">getUser</span> = <span class="kw">async</span> (id) => {\n  <span class="kw">try</span> {\n    <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">\`/api/users/\${id}\`</span>);\n    <span class="kw">if</span> (!res.ok) <span class="kw">throw new</span> <span class="fn">Error</span>(<span class="str">"Not found"</span>);\n    <span class="kw">return await</span> res.<span class="fn">json</span>();\n  } <span class="kw">catch</span> (err) {\n    console.<span class="fn">error</span>(err.message);\n  }\n};`
+    },
+    {
+      name: "Fetch API & HTTP",
+      desc: "Native browser API for HTTP requests. Understand GET/POST/PUT/DELETE, request headers, JSON body, status codes, and error handling patterns.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "REST", cls: "" }, { t: "JSON", cls: "key" }],
+      code: `<span class="cm">// POST request with JSON body</span>\n<span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">"/api/login"</span>, {\n  method: <span class="str">"POST"</span>,\n  headers: { <span class="str">"Content-Type"</span>: <span class="str">"application/json"</span> },\n  body: JSON.<span class="fn">stringify</span>({ email, password })\n});\n<span class="kw">const</span> data = <span class="kw">await</span> res.<span class="fn">json</span>();`
+    },
+    {
+      name: "Event Loop & Microtasks",
+      desc: "Call stack, Web APIs, task queue, microtask queue. Promises go in microtask queue (higher priority). Understanding this is a senior-level differentiator.",
+      tags: [{ t: "Advanced", cls: "hot" }, { t: "microtasks", cls: "key" }, { t: "interview", cls: "" }],
+      code: `console.<span class="fn">log</span>(<span class="str">"1"</span>);\n\n<span class="fn">setTimeout</span>(() => console.<span class="fn">log</span>(<span class="str">"2"</span>), <span class="num">0</span>); <span class="cm">// macro</span>\n\nPromise.<span class="fn">resolve</span>().<span class="fn">then</span>(() => console.<span class="fn">log</span>(<span class="str">"3"</span>)); <span class="cm">// micro</span>\n\nconsole.<span class="fn">log</span>(<span class="str">"4"</span>);\n\n<span class="cm">// Output: 1, 4, 3, 2</span>\n<span class="cm">// Microtasks run BEFORE macrotasks</span>`
+    },
+  ],
+  advanced: [
+    {
+      name: "Closures",
+      desc: "A function that remembers variables from its outer scope even after that scope has exited. Used in data privacy, factory functions, memoization.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "KEY", cls: "key" }, { t: "interview", cls: "" }],
+      code: `<span class="kw">function</span> <span class="fn">counter</span>() {\n  <span class="kw">let</span> count = <span class="num">0</span>; <span class="cm">// private variable</span>\n  <span class="kw">return</span> {\n    <span class="fn">inc</span>: () => ++count,\n    <span class="fn">get</span>: () => count,\n  };\n}\n<span class="kw">const</span> c = <span class="fn">counter</span>();\nc.<span class="fn">inc</span>(); c.<span class="fn">inc</span>();\nconsole.<span class="fn">log</span>(c.<span class="fn">get</span>()); <span class="cm">// 2</span>`
+    },
+    {
+      name: "this Keyword",
+      desc: "Value depends on how a function is called. Arrow functions inherit 'this' from parent scope. Use call/apply/bind to manually set context.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "bind/call/apply", cls: "key" }, { t: "interview", cls: "" }],
+      code: `<span class="kw">const</span> obj = {\n  name: <span class="str">"Arjun"</span>,\n  <span class="fn">greet</span>() { <span class="kw">return</span> <span class="kw">this</span>.name; }, <span class="cm">// "Arjun"</span>\n  <span class="fn">arrow</span>: () => <span class="kw">this</span>.name, <span class="cm">// undefined (lexical)</span>\n};\n\n<span class="cm">// Borrowing methods</span>\n<span class="kw">const</span> greet = obj.greet.<span class="fn">bind</span>({ name: <span class="str">"Dev"</span> });\n<span class="fn">greet</span>(); <span class="cm">// "Dev"</span>`
+    },
+    {
+      name: "Prototypes & Inheritance",
+      desc: "Every object has a prototype chain. ES6 classes are syntactic sugar over prototypal inheritance. Understand __proto__, Object.create, and class extends.",
+      tags: [{ t: "KEY", cls: "key" }, { t: "OOP", cls: "" }, { t: "prototype chain", cls: "" }],
+      code: `<span class="kw">class</span> <span class="fn">Animal</span> {\n  <span class="fn">constructor</span>(name) { <span class="kw">this</span>.name = name; }\n  <span class="fn">speak</span>() { <span class="kw">return</span> <span class="str">\`\${<span class="kw">this</span>.name} sounds\`</span>; }\n}\n<span class="kw">class</span> <span class="fn">Dog</span> <span class="kw">extends</span> <span class="fn">Animal</span> {\n  <span class="fn">speak</span>() {\n    <span class="kw">return super</span>.<span class="fn">speak</span>() + <span class="str">": Woof!"</span>;\n  }\n}`
+    },
+    {
+      name: "Error Handling",
+      desc: "try/catch/finally, custom Error classes, async error boundaries. Never swallow errors silently. Always give meaningful messages.",
+      tags: [{ t: "KEY", cls: "key" }, { t: "custom errors", cls: "" }, { t: "production", cls: "hot" }],
+      code: `<span class="kw">class</span> <span class="fn">ApiError</span> <span class="kw">extends</span> <span class="fn">Error</span> {\n  <span class="fn">constructor</span>(msg, status) {\n    <span class="kw">super</span>(msg);\n    <span class="kw">this</span>.status = status;\n    <span class="kw">this</span>.name = <span class="str">"ApiError"</span>;\n  }\n}\n\n<span class="kw">try</span> {\n  <span class="kw">throw new</span> <span class="fn">ApiError</span>(<span class="str">"Not found"</span>, <span class="num">404</span>);\n} <span class="kw">catch</span> (e) {\n  <span class="kw">if</span> (e <span class="kw">instanceof</span> <span class="fn">ApiError</span>) { <span class="cm">/* handle */</span> }\n}`
+    },
+    {
+      name: "Hoisting",
+      desc: "Variable and function declarations are moved to the top of their scope at compile time. var is initialized to undefined; let/const are in TDZ.",
+      tags: [{ t: "interview", cls: "" }, { t: "TDZ", cls: "hot" }],
+      code: `<span class="cm">// Function hoisting</span>\nconsole.<span class="fn">log</span>(<span class="fn">add</span>(<span class="num">1</span>,<span class="num">2</span>)); <span class="cm">// 3 ✓</span>\n<span class="kw">function</span> <span class="fn">add</span>(a,b) { <span class="kw">return</span> a+b; }\n\n<span class="cm">// var hoisting</span>\nconsole.<span class="fn">log</span>(x); <span class="cm">// undefined (not error)</span>\n<span class="kw">var</span> x = <span class="num">5</span>;\n\n<span class="cm">// let TDZ</span>\nconsole.<span class="fn">log</span>(y); <span class="cm">// ReferenceError</span>\n<span class="kw">let</span> y = <span class="num">5</span>;`
+    },
+    {
+      name: "Debounce & Throttle",
+      desc: "Performance patterns for events. Debounce: run after user stops. Throttle: run at most once per interval. Used in search boxes, scroll handlers, resize.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "performance", cls: "key" }, { t: "production", cls: "hot" }],
+      code: `<span class="cm">// Debounce (search input)</span>\n<span class="kw">function</span> <span class="fn">debounce</span>(fn, delay) {\n  <span class="kw">let</span> timer;\n  <span class="kw">return</span> (...args) => {\n    <span class="fn">clearTimeout</span>(timer);\n    timer = <span class="fn">setTimeout</span>(() => <span class="fn">fn</span>(...args), delay);\n  };\n}\n<span class="kw">const</span> search = <span class="fn">debounce</span>(<span class="fn">callAPI</span>, <span class="num">300</span>);`
+    },
+  ],
+  modern: [
+    {
+      name: "Destructuring",
+      desc: "Extract values from arrays and objects into variables. Used everywhere in React props, API responses, and function parameters.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "ES6", cls: "new" }, { t: "daily use", cls: "key" }],
+      code: `<span class="cm">// Object destructuring with rename + default</span>\n<span class="kw">const</span> { name: n = <span class="str">"Guest"</span>, age } = user;\n\n<span class="cm">// Array destructuring</span>\n<span class="kw">const</span> [first, , third] = [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>];\n\n<span class="cm">// Function params</span>\n<span class="kw">const</span> <span class="fn">greet</span> = ({ name, role = <span class="str">"User"</span> }) =>\n  <span class="str">\`Hello \${name}, \${role}\`</span>;`
+    },
+    {
+      name: "Spread & Rest Operators",
+      desc: "Spread (...) expands iterables. Rest collects remaining elements. Used for immutable updates, function args, array/object copies.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "ES6", cls: "new" }, { t: "immutability", cls: "key" }],
+      code: `<span class="cm">// Spread — copy + extend</span>\n<span class="kw">const</span> updated = { ...user, role: <span class="str">"admin"</span> };\n<span class="kw">const</span> merged = [...arr1, ...arr2];\n\n<span class="cm">// Rest — collect args</span>\n<span class="kw">function</span> <span class="fn">sum</span>(...nums) {\n  <span class="kw">return</span> nums.<span class="fn">reduce</span>((a,c) => a+c, <span class="num">0</span>);\n}\n<span class="fn">sum</span>(<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>); <span class="cm">// 10</span>`
+    },
+    {
+      name: "Template Literals",
+      desc: "Backtick strings with embedded expressions and multiline support. Tagged templates used in styled-components, GraphQL (gql`...`), SQL.",
+      tags: [{ t: "ES6", cls: "new" }, { t: "tagged templates", cls: "" }, { t: "daily use", cls: "key" }],
+      code: `<span class="kw">const</span> msg = <span class="str">\`Hello, \${name}!\`</span>;\n\n<span class="cm">// Multiline</span>\n<span class="kw">const</span> html = <span class="str">\`\n  &lt;div class="\${cls}"&gt;\n    \${content}\n  &lt;/div&gt;\n\`</span>;\n\n<span class="cm">// Tagged template (styled-components)</span>\n<span class="kw">const</span> Btn = styled.button<span class="str">\`color: red;\`</span>;`
+    },
+    {
+      name: "ES Modules (import/export)",
+      desc: "Native module system. Named vs default exports. Dynamic import() for code splitting. This is how all modern React/Node code is structured.",
+      tags: [{ t: "HOT", cls: "hot" }, { t: "ES6", cls: "new" }, { t: "code splitting", cls: "key" }],
+      code: `<span class="cm">// Named exports</span>\n<span class="kw">export const</span> PI = <span class="num">3.14</span>;\n<span class="kw">export function</span> <span class="fn">add</span>(a,b) { <span class="kw">return</span> a+b; }\n\n<span class="cm">// Default export</span>\n<span class="kw">export default</span> <span class="kw">function</span> <span class="fn">App</span>() { ... }\n\n<span class="cm">// Imports</span>\n<span class="kw">import</span> App, { PI, add } <span class="kw">from</span> <span class="str">"./utils"</span>;\n\n<span class="cm">// Dynamic (lazy loading)</span>\n<span class="kw">const</span> mod = <span class="kw">await</span> <span class="kw">import</span>(<span class="str">"./heavy"</span>);`
+    },
+    {
+      name: "Symbol, Map & Set",
+      desc: "Symbol: unique primitive for private-ish keys. Map: key-value with any key type, preserves insertion order. Set: unique values collection.",
+      tags: [{ t: "ES6", cls: "new" }, { t: "Map/Set", cls: "key" }, { t: "data structures", cls: "" }],
+      code: `<span class="cm">// Map — any key type</span>\n<span class="kw">const</span> map = <span class="kw">new</span> <span class="fn">Map</span>();\nmap.<span class="fn">set</span>(obj, <span class="str">"value"</span>);\nmap.<span class="fn">get</span>(obj); <span class="cm">// "value"</span>\n\n<span class="cm">// Set — unique values</span>\n<span class="kw">const</span> unique = [<span class="num">1</span>,<span class="num">2</span>,<span class="num">2</span>,<span class="num">3</span>];\n<span class="kw">const</span> set = <span class="kw">new</span> <span class="fn">Set</span>(unique); <span class="cm">// {1,2,3}</span>\n<span class="kw">const</span> deduped = [...set];    <span class="cm">// [1,2,3]</span>`
+    },
+    {
+      name: "Generators & Iterators",
+      desc: "function* creates generator functions that yield values lazily. Used in Redux-Saga, infinite sequences, custom iterables.",
+      tags: [{ t: "Advanced", cls: "hot" }, { t: "function*", cls: "new" }, { t: "yield", cls: "new" }],
+      code: `<span class="kw">function*</span> <span class="fn">range</span>(start, end) {\n  <span class="kw">for</span> (<span class="kw">let</span> i = start; i <= end; i++) {\n    <span class="kw">yield</span> i;\n  }\n}\n\n<span class="kw">for</span> (<span class="kw">const</span> n <span class="kw">of</span> <span class="fn">range</span>(<span class="num">1</span>,<span class="num">5</span>)) {\n  console.<span class="fn">log</span>(n); <span class="cm">// 1,2,3,4,5</span>\n}`
+    },
+  ],
+};
+
+const interviews = [
+  { q: "What is the difference between == and ===?", a: "<code>==</code> does type coercion before comparing (e.g., <code>0 == '0'</code> is true). <code>===</code> is strict — no coercion, must match type AND value. Always use <code>===</code> in production code." },
+  { q: "Explain event bubbling and how to stop it.", a: "Events bubble from the target element up through ancestors to the document. Use <code>event.stopPropagation()</code> to stop bubbling. <code>event.preventDefault()</code> stops the default browser action but doesn't stop bubbling. Event delegation (attaching one listener to a parent) relies on bubbling." },
+  { q: "What is a closure and give a real-world example?", a: "A closure is a function that remembers variables from its outer scope even after that function has returned. Real example: a counter function that returns increment/decrement/get methods while keeping <code>count</code> private — only accessible through those methods." },
+  { q: "What's the difference between null and undefined?", a: "<code>undefined</code> means a variable has been declared but not assigned. <code>null</code> is an intentional assignment of 'no value'. <code>typeof null</code> returns 'object' — a famous JS bug. Use <code>null</code> when you explicitly want to represent absence." },
+  { q: "Explain Promise.all vs Promise.allSettled vs Promise.race.", a: "<code>Promise.all</code> runs parallel, rejects if ANY fails. <code>Promise.allSettled</code> waits for all, returns status of each (never rejects). <code>Promise.race</code> resolves/rejects with whichever promise settles first. Use <code>allSettled</code> when you need all results regardless of failure." },
+  { q: "What is the difference between var, let, and const?", a: "<code>var</code> is function-scoped, hoisted and initialized to <code>undefined</code>. <code>let</code> and <code>const</code> are block-scoped, hoisted but in the Temporal Dead Zone (TDZ) — accessing before declaration throws ReferenceError. <code>const</code> cannot be reassigned but objects/arrays it references can be mutated." },
+  { q: "How does 'this' work in JavaScript?", a: "In a regular function, <code>this</code> is determined at call time — it's the object that calls the function. In an arrow function, <code>this</code> is lexically inherited from the enclosing scope (defined at write time). <code>bind</code>, <code>call</code>, and <code>apply</code> can explicitly set <code>this</code> for regular functions." },
+  { q: "What is event loop and how does it work?", a: "JS is single-threaded. The event loop manages the call stack, Web APIs, task queue (setTimeout, setInterval), and microtask queue (Promises). Microtasks always run BEFORE the next macrotask. Order: call stack → microtasks → macrotask → repeat." },
+  { q: "What is memoization and when would you use it?", a: "Memoization caches the result of expensive function calls. If called again with the same inputs, returns the cached result instead of recalculating. Use it for pure functions with expensive computations — e.g., recursive Fibonacci, complex data transformations. React's <code>useMemo</code> is built on this concept." },
+  { q: "Explain shallow vs deep copy.", a: "Shallow copy (spread operator, <code>Object.assign</code>) copies only the first level — nested objects are still referenced. Deep copy (<code>JSON.parse(JSON.stringify())</code>, structuredClone, lodash cloneDeep) copies everything. Shallow copies cause bugs with nested state mutations in React." },
+  { q: "What is prototype chain in JS?", a: "Every object has a hidden <code>[[Prototype]]</code> link to another object. When you access a property, JS first checks the object itself, then traverses up the prototype chain until it finds it or reaches <code>null</code>. ES6 <code>class extends</code> is syntactic sugar over this mechanism." },
+  { q: "What's the output? setTimeout(() => console.log('A'), 0); Promise.resolve().then(() => console.log('B')); console.log('C');", a: "Output is: C, B, A. Explanation: 'C' runs synchronously on the call stack. The Promise microtask ('B') is queued and runs after the current stack clears. setTimeout ('A') is a macrotask and runs last, even with 0ms delay." },
+];
+
+const cheatsheet = [
+  {
+    title: "Array Methods",
+    items: [
+      { label: "Transform each element", val: ".map(fn)" },
+      { label: "Keep matching elements", val: ".filter(fn)" },
+      { label: "Combine to single value", val: ".reduce(fn, init)" },
+      { label: "First match", val: ".find(fn)" },
+      { label: "Index of first match", val: ".findIndex(fn)" },
+      { label: "Test at least one", val: ".some(fn)" },
+      { label: "Test all elements", val: ".every(fn)" },
+      { label: "Flatten nested arrays", val: ".flat(depth)" },
+      { label: "Add to end", val: ".push(...items)" },
+      { label: "Remove from end", val: ".pop()" },
+      { label: "Add to start", val: ".unshift(item)" },
+      { label: "Remove from start", val: ".shift()" },
+    ]
+  },
+  {
+    title: "Object Methods",
+    items: [
+      { label: "Get all keys", val: "Object.keys(obj)" },
+      { label: "Get all values", val: "Object.values(obj)" },
+      { label: "Get key-value pairs", val: "Object.entries(obj)" },
+      { label: "Merge objects", val: "Object.assign({}, a, b)" },
+      { label: "Shallow copy", val: "{ ...obj }" },
+      { label: "Check own property", val: "obj.hasOwnProperty(k)" },
+      { label: "Make immutable", val: "Object.freeze(obj)" },
+      { label: "From entries array", val: "Object.fromEntries(arr)" },
+    ]
+  },
+  {
+    title: "Promises Quick Ref",
+    items: [
+      { label: "Create resolved", val: "Promise.resolve(val)" },
+      { label: "Create rejected", val: "Promise.reject(err)" },
+      { label: "All must succeed", val: "Promise.all([...])" },
+      { label: "All results always", val: "Promise.allSettled([...])" },
+      { label: "First to settle", val: "Promise.race([...])" },
+      { label: "First to fulfill", val: "Promise.any([...])" },
+    ]
+  },
+  {
+    title: "Common Patterns",
+    items: [
+      { label: "Nullish fallback", val: "val ?? 'default'" },
+      { label: "Optional chain", val: "obj?.prop?.sub" },
+      { label: "Logical assign", val: "x ||= 'default'" },
+      { label: "Nullish assign", val: "x ??= 'default'" },
+      { label: "Deep clone", val: "structuredClone(obj)" },
+      { label: "Unique array", val: "[...new Set(arr)]" },
+      { label: "Swap variables", val: "[a, b] = [b, a]" },
+      { label: "Short circuit eval", val: "flag && doThing()" },
+    ]
+  },
+  {
+    title: "String Methods",
+    items: [
+      { label: "Check contains", val: ".includes(str)" },
+      { label: "Check start", val: ".startsWith(str)" },
+      { label: "Check end", val: ".endsWith(str)" },
+      { label: "Split to array", val: ".split(sep)" },
+      { label: "Trim whitespace", val: ".trim()" },
+      { label: "Replace all", val: ".replaceAll(a, b)" },
+      { label: "Pad left", val: ".padStart(len, ch)" },
+      { label: "Repeat n times", val: ".repeat(n)" },
+    ]
+  },
+  {
+    title: "Async Patterns",
+    items: [
+      { label: "Async function", val: "async function fn(){}" },
+      { label: "Await a promise", val: "const r = await fn()" },
+      { label: "Safe async call", val: "try { await } catch{}" },
+      { label: "Parallel await", val: "await Promise.all([])" },
+      { label: "Fetch GET", val: "await fetch(url)" },
+      { label: "Fetch POST", val: "fetch(url,{method:'POST'})" },
+    ]
+  },
+];
+
+// ── RENDER TOPICS ──────────────────────────────────────────────────────
+function renderTopics() {
+  const sections = ['core', 'async', 'advanced', 'modern'];
+  sections.forEach(sec => {
+    const grid = document.getElementById('grid-' + sec);
+    (topics[sec] || []).forEach((t, i) => {
+      const id = sec + '-' + i;
+      const done = localStorage.getItem('js-roadmap-' + id) === '1';
+      const div = document.createElement('div');
+      div.className = 'topic-card' + (done ? ' done' : '');
+      div.id = 'card-' + id;
+      div.innerHTML = `
+        <div class="topic-header">
+          <div class="topic-name">${t.name}</div>
+          <button class="check-btn" onclick="toggleDone('${id}', event)">${done ? '✓' : ''}</button>
+        </div>
+        <div class="topic-desc">${t.desc}</div>
+        <div class="tags-row">${t.tags.map(tg => `<span class="chip ${tg.cls}">${tg.t}</span>`).join('')}</div>
+        ${t.code ? `<span class="toggle-code" onclick="toggleCode('${id}', event)">[ view example ]</span><pre class="code-block" id="code-${id}">${t.code}</pre>` : ''}
+      `;
+      grid.appendChild(div);
+    });
+  });
+  updateProgress();
+}
+
+function toggleDone(id, e) {
+  e.stopPropagation();
+  const card = document.getElementById('card-' + id);
+  const btn = card.querySelector('.check-btn');
+  const isDone = card.classList.toggle('done');
+  btn.textContent = isDone ? '✓' : '';
+  localStorage.setItem('js-roadmap-' + id, isDone ? '1' : '0');
+  updateProgress();
+}
+
+function toggleCode(id, e) {
+  e.stopPropagation();
+  const block = document.getElementById('code-' + id);
+  const btn = e.target;
+  block.classList.toggle('open');
+  btn.textContent = block.classList.contains('open') ? '[ hide example ]' : '[ view example ]';
+}
+
+function updateProgress() {
+  const sections = ['core', 'async', 'advanced', 'modern'];
+  let total = 0, done = 0;
+  sections.forEach(sec => {
+    (topics[sec] || []).forEach((_, i) => {
+      total++;
+      if (localStorage.getItem('js-roadmap-' + sec + '-' + i) === '1') done++;
+    });
+  });
+  const pct = total ? (done / total * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = done + ' / ' + total;
+}
+
+// ── RENDER INTERVIEWS ──────────────────────────────────────────────────
+function renderInterviews() {
+  const grid = document.getElementById('grid-interviews');
+  interviews.forEach((iq, i) => {
+    const div = document.createElement('div');
+    div.className = 'iq-card';
+    div.innerHTML = `
+      <div class="iq-q" onclick="toggleIQ(${i})">
+        <span>${i+1}. ${iq.q}</span>
+        <span class="arrow">▶</span>
+      </div>
+      <div class="iq-ans" id="iq-${i}">${iq.a}</div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function toggleIQ(i) {
+  const ans = document.getElementById('iq-' + i);
+  const q = ans.previousElementSibling;
+  ans.classList.toggle('open');
+  q.classList.toggle('open');
+}
+
+// ── RENDER CHEATSHEET ──────────────────────────────────────────────────
+function renderCheatsheet() {
+  const grid = document.getElementById('grid-cheatsheet');
+  cheatsheet.forEach(group => {
+    const div = document.createElement('div');
+    div.className = 'cheat-card';
+    div.innerHTML = `<h3>${group.title}</h3>` +
+      group.items.map(item => `
+        <div class="cheat-item">
+          <span class="label">${item.label}</span>
+          <span class="val">${item.val}</span>
+        </div>`).join('');
+    grid.appendChild(div);
+  });
+}
+
+// ── TABS ───────────────────────────────────────────────────────────────
+function showTab(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('section-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────
+renderTopics();
+renderInterviews();
+renderCheatsheet();
+</script>
+</body>
+>>>>>>> 05ca422ce436cd63ae7a82e655f51d39048f2c42
+</html>

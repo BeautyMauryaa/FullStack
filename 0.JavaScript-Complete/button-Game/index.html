@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catch Me If You Can</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ════════════════════════════════
+         SCREEN 1 — ENTRY
+    ════════════════════════════════ -->
+    <div class="screen active" id="screen-entry">
+      <div class="entry-top">
+        <div class="streak-badge">
+          <span class="streak-fire" id="streak-fire">🔥</span>
+          <span class="streak-count" id="streak-count">Day 1</span>
+        </div>
+        <div class="best-badge">
+          Round <span id="best-round">—</span>
+        </div>
+      </div>
+
+      <div class="entry-center">
+        <div class="entry-label">CATCH ME IF YOU CAN</div>
+        <h1 class="entry-greeting" id="entry-greeting">Let's see what you've got.</h1>
+        <p class="entry-sub">5 rounds. Escaping button. Your focus vs my speed.</p>
+      </div>
+
+      <div class="entry-bottom">
+        <button class="btn-main" id="btn-start">Start Game</button>
+        <p class="entry-hint">Win all 5 rounds → unlock your Lucky Cheat</p>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 1B — PUZZLE
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-puzzle">
+      <div class="puzzle-round-tag" id="puzzle-round-tag">ROUND 1 OF 5</div>
+
+      <div class="puzzle-card">
+        <div class="puzzle-label">🧩 Decode this round</div>
+        <p class="puzzle-riddle" id="puzzle-riddle"></p>
+      </div>
+
+      <div class="puzzle-hint-wrap hidden" id="puzzle-hint-wrap">
+        <div class="puzzle-hint-label">💡 What this means</div>
+        <p class="puzzle-hint-text" id="puzzle-hint-text"></p>
+      </div>
+
+      <button class="btn-main" id="btn-puzzle-go">Got it — Let's Go</button>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 2 — ROUND INTRO
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-round-intro">
+      <div class="round-intro-label">ROUND</div>
+      <div class="round-intro-number" id="intro-round-num">1</div>
+      <div class="round-intro-of">OF 5</div>
+      <p class="round-intro-mechanic" id="intro-mechanic">Basic escape. I move when you get close.</p>
+      <div class="round-intro-countdown" id="intro-countdown">3</div>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 3 — GAME
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-game">
+
+      <!-- Top HUD — inline style matching mockup -->
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">ROUND</span>
+          <span class="hud-value" id="hud-round">1/5</span>
+        </div>
+        <div class="hud-item" style="border-left:1px solid rgba(255,255,255,0.12); padding-left:16px; margin-left:8px;">
+          <span class="hud-label">TIMER:</span>
+          <span class="hud-timer-num" id="hud-timer">20</span>
+          <div class="hud-timer-bar-wrap">
+            <div class="hud-timer-bar" id="hud-timer-bar"></div>
+          </div>
+        </div>
+        <div class="hud-item" style="margin-left:auto;">
+          <span class="hud-label">ESCAPED</span>
+          <span class="hud-value" id="hud-escapes">0</span>
+        </div>
+      </div>
+
+      <!-- Taunt -->
+      <div class="taunt-wrap" id="taunt-wrap">
+        <p class="taunt-text" id="taunt-text"></p>
+      </div>
+
+      <!-- Arena -->
+      <div class="arena-wrap">
+        <div class="arena" id="arena">
+          <div class="arena-corner tl"></div>
+          <div class="arena-corner tr"></div>
+          <div class="arena-corner bl"></div>
+          <div class="arena-corner br"></div>
+
+          <!-- Bait Zone -->
+          <div class="bait-zone hidden" id="bait-zone">
+            <div class="bait-ring"></div>
+            <div class="bait-countdown" id="bait-countdown"></div>
+          </div>
+
+          <!-- The real button -->
+          <button class="catch-btn real-btn" id="real-btn" data-real="true">
+            REAL
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom hint -->
+      <div class="game-bottom">
+        <p class="game-round-hint" id="game-round-hint"></p>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 4A — ROUND CLEAR
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-round-clear">
+      <div class="round-clear-emoji" id="clear-emoji">😮</div>
+      <h2 class="round-clear-title" id="clear-title">Round 1 — Done.</h2>
+      <p class="round-clear-sub" id="clear-sub">You got lucky. Next one's harder.</p>
+
+      <!-- Pip progress -->
+      <div class="progress-track-wrap" id="clear-progress-pips">
+        <div class="progress-pip done"></div>
+        <div class="progress-pip"></div>
+        <div class="progress-pip"></div>
+        <div class="progress-pip"></div>
+        <div class="progress-pip"></div>
+      </div>
+
+      <div class="round-clear-next">NEXT ROUND IN <span id="clear-countdown">3</span>...</div>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 4B — GAME OVER
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-gameover">
+      <div class="go-emoji">💀</div>
+      <h2 class="go-title" id="go-title">Game Over.</h2>
+      <p class="go-message" id="go-message">The fake buttons fooled you. Predictable.</p>
+
+      <!-- Progress bar -->
+      <div class="go-progress-wrap">
+        <div class="go-progress-label">How far you got</div>
+        <div class="go-progress-track">
+          <div class="go-progress-fill" id="go-progress-fill"></div>
+        </div>
+        <div class="go-progress-rounds">
+          <span>R1</span><span>R2</span><span>R3</span><span>R4</span><span>R5</span>
+        </div>
+      </div>
+
+      <button class="btn-main" id="btn-retry">Try Again</button>
+    </div>
+
+    <!-- ════════════════════════════════
+         SCREEN 5 — WIN
+    ════════════════════════════════ -->
+    <div class="screen" id="screen-win">
+
+      <div class="win-top">
+        <div class="win-emoji" id="win-emoji">🎉</div>
+        <h2 class="win-title" id="win-title">You actually did it.</h2>
+        <p class="win-message" id="win-message">5 rounds. Most people quit at 3.</p>
+        <div class="win-streak" id="win-streak">🔥 Day 1 streak</div>
+      </div>
+
+      <!-- Lucky Cheat section -->
+      <div class="cheat-section" id="cheat-section">
+        <button class="btn-cheat" id="btn-reveal-cheat">
+          Reveal Lucky Cheat ✦
+        </button>
+
+        <div class="cheat-card hidden" id="cheat-card">
+          <div class="cheat-day-tag" id="cheat-day">Monday</div>
+          <p class="cheat-text" id="cheat-text"></p>
+        </div>
+      </div>
+
+      <!-- Challenge section -->
+      <div class="challenge-section hidden" id="challenge-section">
+        <button class="btn-challenge" id="btn-accept-challenge">
+          I Accept This Challenge.
+        </button>
+
+        <div class="challenge-card hidden" id="challenge-card">
+          <div class="challenge-label">Today's Challenge</div>
+          <p class="challenge-text" id="challenge-text"></p>
+          <div class="challenge-check">
+            <p class="challenge-check-label">Did you complete it?</p>
+            <div class="challenge-btns">
+              <button class="btn-check yes" id="btn-yes">Yes, done.</button>
+              <button class="btn-check no" id="btn-no">Not yet.</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-ghost" id="btn-play-again">Play Again Tomorrow</button>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="memory.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
